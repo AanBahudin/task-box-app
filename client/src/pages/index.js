@@ -1,4 +1,5 @@
 import Dashboard from "./Dashboard";
+import EditTodo from "./EditTodo";
 import Error from "./Error";
 import HomeLayout from "./HomeLayout";
 import Landing from "./Landing";
@@ -9,6 +10,7 @@ import Todo from "./Todo";
 
 export { 
     Dashboard,
+    EditTodo,
     Error,
     HomeLayout,
     Landing,
