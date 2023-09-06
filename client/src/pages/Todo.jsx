@@ -1,6 +1,6 @@
 import { toast } from "react-toastify"
 import { redirect, useOutletContext, Form } from "react-router-dom"
-import { List } from "../components"
+import { TodoContainer } from "../components"
 import axios from "axios"
 
 export const action = async({ request }) => {
@@ -20,6 +20,7 @@ export const action = async({ request }) => {
 const Todo = () => {
 
     const {jobData} = useOutletContext()
+    const {todo} = jobData
 
     return (
         <div className="w-[100vw] min-h-[100vh] bg-[#030C0E]">
@@ -34,9 +35,7 @@ const Todo = () => {
                 </Form>
 
                 <div className="w-[50%] my-8">
-                    {jobData.todo.map(item => {
-                        return <List {...item} key={item.id} />
-                    })}
+                    {todo.length !== 0 ? <TodoContainer todo={todo}  /> : <h1 className="text-center mt-10 text-goldenWhite text-3xl">no task recently ...</h1>}
                 </div>
 
             </section>
