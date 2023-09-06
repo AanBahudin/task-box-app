@@ -1,9 +1,25 @@
 /* eslint-disable react/prop-types */
 import { AiFillDelete, AiFillEdit } from 'react-icons/ai'
 import { BiCheck } from 'react-icons/bi'
+import axios from 'axios'
+import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
 
-const List = ({ status, todo }) => {
+const List = ({ status, todo, _id }) => {
+
+  const navigate = useNavigate()
+
+  const deleteTodo = async(id) => {
+    try {
+      await axios.delete(`/api/v1/todo/${id}`)
+      toast.success('Successfully deleted ...')
+      return navigate('.')
+    } catch (error) {
+      toast.error(error.response.data.msg)
+    }
+  }
+
   return (
    <section className="flex items-center w-full justify-between text-[#BDBEBC] my-3 transition ease-in-out duration-150">
         <h5 className="w-[25%]">{todo}</h5>
@@ -12,7 +28,7 @@ const List = ({ status, todo }) => {
         <div className='flex items-center justify-between gap-x-3'>
             <BiCheck />
             <AiFillEdit />
-            <AiFillDelete />
+            <AiFillDelete onClick={() => deleteTodo(_id)} />
         </div>
     </section>
   )

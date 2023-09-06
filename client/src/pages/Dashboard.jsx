@@ -26,7 +26,7 @@ const Dashboard = () => {
     navigate('/')
     await axios.get('/api/v1/auth/logout')
     toast.success('Logging Out..')
-  } 
+  }
 
   return (
     <DashboardContext.Provider value={{
