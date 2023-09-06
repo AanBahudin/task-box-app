@@ -1,7 +1,9 @@
+/* eslint-disable react-refresh/only-export-components */
 import avatar from '../assets/images/user.png'
-import { Form,useOutletContext, redirect } from 'react-router-dom'
+import { Form,useOutletContext, redirect, Link } from 'react-router-dom'
 import moment from 'moment/moment'
 import axios from 'axios'
+import {AiFillInstagram, AiFillTwitterSquare} from 'react-icons/ai'
 import { toast } from 'react-toastify'
 
 export const action = async({request}) => {
@@ -37,9 +39,19 @@ const Profile = () => {
           </div>
 
           <div className='mx-10 text-md'>
-            <h1 className='text-3xl'>{user?.name}</h1>
+            <h1 className='text-3xl'>{`${user?.name} ${user?.lastName || ''}`}</h1>
             <h4 className='mt-5'>{user?.email}</h4>
             <p className='text-secondaryDarker font-bold'>Joined {moment(user?.createdAt).format('ll')}</p>
+
+            <div className='mt-4'>
+              <p className='text-sm mb-2'>social</p>
+
+              <article className='flex gap-x-4'>
+                {user?.instagramURL && (<Link to={user?.instagramURL}> <AiFillInstagram /> </Link>) }
+                {user?.twitterURL && (<Link to={user?.twitterURL}> <AiFillTwitterSquare /> </Link>) }
+              </article>
+            </div>
+
           </div>
         </div>
 
@@ -62,7 +74,7 @@ const Profile = () => {
 
             <div className="flex w-[30%] m-auto  flex-col justify-start items-start">
                 <label htmlFor="email">Lastname</label>
-                <input defaultValue={user?.lastname || ''} className="px-5 outline-none py-1 mt-2 w-full rounded-lg bg-secondaryDarker border" type="text" name="lastName" id="lastName" />
+                <input defaultValue={user?.lastName || ''} className="px-5 outline-none py-1 mt-2 w-full rounded-lg bg-secondaryDarker border" type="text" name="lastName" id="lastName" />
             </div>
 
             <div className="flex w-[30%] m-auto flex-col justify-start items-start">
@@ -72,12 +84,12 @@ const Profile = () => {
 
             <div className="flex w-[30%] m-auto flex-col justify-start items-start">
                 <label htmlFor="email">Instagram url</label>
-                <input defaultValue={user?.location || ''} className="px-5 outline-none py-1 mt-2 w-full rounded-lg bg-secondaryDarker border" type="text" name="instagramURL" id="instagramURL" />
+                <input defaultValue={user?.instagramURL || ''} className="px-5 outline-none py-1 mt-2 w-full rounded-lg bg-secondaryDarker border" type="text" name="instagramURL" id="instagramURL" />
             </div>
 
             <div className="flex w-[30%] m-auto flex-col justify-start items-start">
                 <label htmlFor="email">twitter</label>
-                <input defaultValue={user?.location || ''} className="px-5 outline-none py-1 mt-2 w-full rounded-lg bg-secondaryDarker border" type="text" name="twitterURL" id="twitterURL" />
+                <input defaultValue={user?.twitterURL || ''} className="px-5 outline-none py-1 mt-2 w-full rounded-lg bg-secondaryDarker border" type="text" name="twitterURL" id="twitterURL" />
             </div>
             
             <button type='submit' className='m-auto bg-secondaryDarker text-center w-1/2 p-2 rounded-md mt-5 hover:bg-goldenWhite hover:text-secondaryDarker ease-in-out duration-150 cursor-default'>Submit</button>
