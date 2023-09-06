@@ -40,5 +40,10 @@ export const register = async (req, res) => {
 }
 
 export const logout = async (req, res) => {
-    res.send('logout')
+    res.cookie('token', 'logout', {
+        httpOnly: true,
+        expiresIn: new Date(Date.now())
+    })
+
+    res.status(StatusCodes.OK).json({msg: 'Successfully logout'})
 }
