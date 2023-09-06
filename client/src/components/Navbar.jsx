@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import Logo from './Logo'
 import { useDashboardContext } from '../pages/Dashboard'
 
-const Navbar = ({name}) => {
+const Navbar = ({user}) => {
 
   const { logoutUser } = useDashboardContext()
 
@@ -16,7 +16,7 @@ const Navbar = ({name}) => {
         <section className='flex items-center justify-between gap-x-8'>
                 <Link to='profile' className='flex justify-between items-center gap-x-4 cursor-default'>
                     <FaUser />
-                    {name}
+                    {user.name}
                 </Link>
             <p onClick={logoutUser} className='cursor-default'>logout</p>
         </section>

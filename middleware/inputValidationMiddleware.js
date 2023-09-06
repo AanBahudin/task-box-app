@@ -68,10 +68,6 @@ export const validateTodoInput = withValidationErrors([
         .isLength({min: 3})
         .withMessage('task is to short')
         .escape(),
-    body('status')
-        .notEmpty()
-        .withMessage('status is required')
-        .isIn(Object.values(TODO_STATUS))
 ])
 
 

@@ -14,7 +14,7 @@ export const createTodo = async (req, res) => {
 }
 
 export const getAllTodos = async (req, res) => {
-    const todo = await Todo.find({createdBy: req.user.userId})
+    const todo = await Todo.find({createdBy: req.user.userId}).sort({createdAt: -1})
 
     res.status(StatusCodes.OK).json({todo, total: todo.length})
 }
