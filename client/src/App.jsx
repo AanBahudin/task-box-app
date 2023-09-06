@@ -6,6 +6,7 @@ import { loader as dashboardLoader } from './pages/Dashboard'
 import { loader as homeLayoutLoader } from './pages/HomeLayout'
 
 import { action as loginAction } from './pages/Login'
+import {action as profileAction} from './pages/Profile'
 import { action as registerAction } from './pages/Register'
 import {action as todoAction} from './pages/Todo'
 
@@ -54,7 +55,8 @@ const router = createBrowserRouter([
       },
       {
         path: 'profile',
-        element: <Profile />
+        element: <Profile />,
+        action: profileAction
       },
       {
         path: 'edit-todo',

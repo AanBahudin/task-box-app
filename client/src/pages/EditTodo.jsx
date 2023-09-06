@@ -1,7 +1,10 @@
 
+
 const EditTodo = () => {
   return (
-    <div>EditTodo</div>
+    <div className="w-full h-full bg-primary text-goldenWhite">
+        profile
+    </div>
   )
 }
 

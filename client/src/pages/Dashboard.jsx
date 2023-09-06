@@ -36,7 +36,7 @@ const Dashboard = () => {
     }}>
       <div className="w-full h-full relative">
           <Navbar user={user.user} />
-          <Outlet context={{jobData, user}} />
+          <Outlet context={{jobData, user: user.user}} />
       </div>
     </DashboardContext.Provider>
   )
