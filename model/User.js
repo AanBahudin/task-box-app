@@ -11,6 +11,15 @@ const TodoSchema = new mongoose.Schema({
     email: {
         type: String
     },
+    location: {
+        type: String
+    },
+    instagramURL: {
+        type: String
+    },
+    twitterURL: {
+        type: String
+    },
     password: {
         type: String
     },
