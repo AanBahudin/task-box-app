@@ -11,7 +11,7 @@ const List = ({ status, todo, _id, createdAt }) => {
 
   const navigate = useNavigate()
 
-  const timeStatus = moment(createdAt).subtract(1, 'days').calendar().split(' ')[0];
+  const timeStatus = moment(createdAt).calendar().split(' ')[0];
 
   const deleteTodo = async(id) => {
     try {
@@ -23,15 +23,20 @@ const List = ({ status, todo, _id, createdAt }) => {
     }
   }
 
-  const updateTodoStatus = async (id, status) => {
-        try {
-            await axios.patch(`/api/v1/todo/${id}`, {todo, status})
-            toast(`Task ${status}`)
-            return navigate('.')
-        } catch (error) {
-            toast.error(error.response.data.msg)
-            return error
-        }
+  const updateTodoStatus = async (id, recentStatus, status) => {
+
+    if (recentStatus === status) {
+      toast.info(`task is already ${recentStatus}`)
+    } else {
+      try {
+          await axios.patch(`/api/v1/todo/${id}`, {todo, status})
+          toast.success(`Task ${status}`)
+          return navigate('.')
+      } catch (error) {
+          toast.error(error.response.data.msg)
+          return error
+      }
+    }
     }
 
   return (
@@ -40,8 +45,8 @@ const List = ({ status, todo, _id, createdAt }) => {
         <p className="bg-[#1C2E34] px-3 py-1 rounded-md min-w-[120px] text-center">{status}</p>
         
         <div className='flex items-center justify-between gap-x-3'>
-            <BiCheck onClick={() => updateTodoStatus(_id, 'completed')} />
-            <AiFillSetting onClick={() => updateTodoStatus(_id, 'on Progress')}/>
+            <BiCheck onClick={() => updateTodoStatus(_id, status, 'completed')} />
+            <AiFillSetting onClick={() => updateTodoStatus(_id, status, 'on Progress')}/>
             <AiFillEdit />
             <AiFillDelete onClick={() => deleteTodo(_id)} />
         </div>
