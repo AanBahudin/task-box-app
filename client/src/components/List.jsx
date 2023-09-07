@@ -41,7 +41,7 @@ const List = ({ status, todo, _id, createdAt }) => {
 
   return (
    <section className="flex md:text-md items-center w-full justify-between text-[#BDBEBC] my-3 transition ease-in-out duration-150">
-        <h5 className="w-[25%]">{todo}</h5>
+        <h5 className={`w-[25%] ${status === 'completed' ? 'line-through italic opacity-40' : null}`}>{todo}</h5>
         <p className="bg-[#1C2E34] px-3 py-1 rounded-md min-w-[120px] text-center">{status}</p>
         
         <div className='flex items-center justify-between gap-x-3'>
