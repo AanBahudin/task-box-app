@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { useState } from 'react'
 import { AiFillDelete, AiFillEdit, AiFillSetting } from 'react-icons/ai'
 import { BiCheck } from 'react-icons/bi'
 import axios from 'axios'
@@ -9,8 +10,11 @@ import { useNavigate } from 'react-router-dom'
 
 const List = ({ status, todo, _id, createdAt }) => {
 
-  const navigate = useNavigate()
+  const [isEditing, setIsEditing] = useState(false)
+  const [todoId, setTodoId] = useState('')
+  const [todoValue, setTodoValue] = useState(todo)
 
+  const navigate = useNavigate()
   const timeStatus = moment(createdAt).calendar().split(' ')[0];
 
   const deleteTodo = async(id) => {
@@ -39,15 +43,41 @@ const List = ({ status, todo, _id, createdAt }) => {
     }
     }
 
+    const updateTodoTitle = async (e) => {
+      e.preventDefault()
+      try {
+        await axios.patch(`api/v1/todo/${todoId}`, {todo: todoValue, status})
+        setIsEditing(false)
+        setTodoId('')
+        toast.success('task updated')
+        return navigate('.')
+      } catch (error) {
+        console.log(error);
+        setIsEditing(false)
+        setTodoId('')
+        toast.error(error.response.data.msg)
+      }
+    }
+
   return (
    <section className="flex md:text-md items-center w-full justify-between text-[#BDBEBC] my-3 transition ease-in-out duration-150">
-        <h5 className={`w-[25%] ${status === 'completed' ? 'line-through italic opacity-40' : null}`}>{todo}</h5>
-        <p className="bg-[#1C2E34] px-3 py-1 rounded-md min-w-[120px] text-center">{status}</p>
+        {isEditing ? (
+          <form onSubmit={e => updateTodoTitle(e)} className='w-[25%]'>
+            <input autoFocus type="text" className='rounded-md w-[120%] sm:w-[110%] bg-secondary py-[6px] px-4 outline ring-0 text-sm' value={todoValue} onChange={(e) => setTodoValue(e.target.value)} name='todo' id='todo'  />
+          </form>
+        ) : (
+          <h5 className={`w-[25%] ${status === 'completed' ? 'line-through italic opacity-40' : null}`}>{todo}</h5>
+        ) }
         
+        <p className="bg-[#1C2E34] px-3 py-1 rounded-md min-w-[120px] text-center">{status}</p>
+      
         <div className='flex items-center justify-between gap-x-3'>
             <BiCheck onClick={() => updateTodoStatus(_id, status, 'completed')} />
             <AiFillSetting onClick={() => updateTodoStatus(_id, status, 'on Progress')}/>
-            <AiFillEdit />
+            <AiFillEdit onClick={() => {
+              setIsEditing(!isEditing)
+              setTodoId(_id)
+            }} />
             <AiFillDelete onClick={() => deleteTodo(_id)} />
         </div>
 
