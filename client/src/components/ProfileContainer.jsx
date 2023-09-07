@@ -13,7 +13,7 @@ const ProfileContainer = ({ user }) => {
 
           <div>
             <article className="bg-secondaryDarker w-[130px] rounded-full h-[130px]">
-              <img className='object-cover rounded-full' src={user.avatar ? user.avatar : avatar} alt="photo profile" />
+              <img className='object-cover w-[130px] rounded-full h-[130px]' src={user.avatar ? user.avatar : avatar} alt="photo profile" />
             </article>
             <p className='text-center mt-2'>Profile</p>
           </div>

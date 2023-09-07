@@ -11,9 +11,6 @@ export const getUserInfo = async (req, res) => {
 }
 
 export const updateUser = async (req, res) => {
-
-    console.log(req.file);
-
     if (req.file) {
         const file = formatImage(req.file)
         const response = await cloudinary.v2.uploader.upload(file)

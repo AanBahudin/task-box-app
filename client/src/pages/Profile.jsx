@@ -42,11 +42,6 @@ const Profile = () => {
         <h1 className='text-center text-4xl mb-10'>Edit Profile</h1>
         <Form method="POST" encType='multipart/form-data' className='flex w-full gap-5 flex-wrap items-center justify-start'>
 
-          <div className="flex w-[30%] m-auto flex-col justify-start items-start">
-              <label htmlFor='avatar'>image</label>
-              <input className="px-5 outline-none py-1 mt-2 w-full rounded-lg bg-secondaryDarker border" type='file' name='avatar' id='avatar' accept='image/*' />
-          </div>
-
           <FormInput
             labelText="email"
             labelFor="email"
@@ -95,6 +90,10 @@ const Profile = () => {
             defaultValue={user?.twitterURL}
           />
             
+          <div className="flex w-full m-auto flex-col justify-start items-start">
+              <label htmlFor='avatar'>image</label>
+              <input className="px-5 outline-none py-1 mt-2 w-full rounded-lg bg-secondaryDarker border" type='file' name='avatar' id='avatar' accept='image/*' />
+          </div>
             <button type='submit' disabled={isSubmitting} className='m-auto bg-secondaryDarker text-center w-1/2 p-2 rounded-md mt-5 hover:bg-goldenWhite hover:text-secondaryDarker ease-in-out duration-150 cursor-default'>{isSubmitting ? 'Please Wait ...' : 'Submit'}</button>
         </Form>
       </section>
