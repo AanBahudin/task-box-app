@@ -20,6 +20,10 @@ const TodoSchema = new mongoose.Schema({
     twitterURL: {
         type: String
     },
+    avatar: {
+        type: String,
+        avatarPublicId: String
+    },
     password: {
         type: String
     },

@@ -19,6 +19,19 @@ import { authenticatedMiddleware } from './middleware/authenticateMiddleware.js'
 import cookieParser from 'cookie-parser'
 import morgan from 'morgan'
 import cors from 'cors'
+import cloudinary from 'cloudinary'
+
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.API_KEY,
+    api_secret: process.env.API_SECRET
+})
+
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
+import path from 'path'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 app.use(express.json())
 if (process.env.NODE_ENV !== 'production') {

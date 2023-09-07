@@ -12,8 +12,8 @@ const ProfileContainer = ({ user }) => {
         <div className='flex'>
 
           <div>
-            <article className="bg-secondaryDarker p-4 w-[130px] rounded-full h-[130px]">
-              <img className='object-fill rounded-full' src={avatar} alt="photo profile" />
+            <article className="bg-secondaryDarker w-[130px] rounded-full h-[130px]">
+              <img className='object-cover rounded-full' src={user.avatar ? user.avatar : avatar} alt="photo profile" />
             </article>
             <p className='text-center mt-2'>Profile</p>
           </div>

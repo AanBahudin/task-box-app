@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 
-import { Form,useOutletContext, redirect } from 'react-router-dom'
+import { Form,useOutletContext, redirect, useNavigation } from 'react-router-dom'
 
 import axios from 'axios'
 
@@ -9,10 +9,15 @@ import { FormInput, ProfileContainer } from '../components'
 
 export const action = async({request}) => {
   const formData = await request.formData()
-  const data = Object.fromEntries(formData)
+
+  const file = formData.get('avatar')
+    if (file && file.size > 500000) {
+      toast.error('image size too large')
+      return null
+    }
 
   try {
-    await axios.patch('/api/v1/user/update-user', data)
+    await axios.patch('/api/v1/user/update-user', formData)
     toast.success('Profile Updated!')
     return redirect('.')
   } catch (error) {
@@ -24,6 +29,8 @@ export const action = async({request}) => {
 const Profile = () => {
 
   const {user} = useOutletContext()
+  const navigation = useNavigation()
+  const isSubmitting = navigation.state === 'submitting'
   
   return (
     <div className="w-full min-h-[100vh] bg-primary text-goldenWhite flex flex-col justify-start">
@@ -33,7 +40,12 @@ const Profile = () => {
       {/* UPDATE USER FORM */}
       <section className='my-10  w-[80%] mx-auto py-10 px-10 rounded-md bg-secondary'>
         <h1 className='text-center text-4xl mb-10'>Edit Profile</h1>
-        <Form method="POST" className='flex w-full gap-5 flex-wrap items-center justify-start'>
+        <Form method="POST" encType='multipart/form-data' className='flex w-full gap-5 flex-wrap items-center justify-start'>
+
+          <div className="flex w-[30%] m-auto flex-col justify-start items-start">
+              <label htmlFor='avatar'>image</label>
+              <input className="px-5 outline-none py-1 mt-2 w-full rounded-lg bg-secondaryDarker border" type='file' name='avatar' id='avatar' accept='image/*' />
+          </div>
 
           <FormInput
             labelText="email"
@@ -83,7 +95,7 @@ const Profile = () => {
             defaultValue={user?.twitterURL}
           />
             
-            <button type='submit' className='m-auto bg-secondaryDarker text-center w-1/2 p-2 rounded-md mt-5 hover:bg-goldenWhite hover:text-secondaryDarker ease-in-out duration-150 cursor-default'>Submit</button>
+            <button type='submit' disabled={isSubmitting} className='m-auto bg-secondaryDarker text-center w-1/2 p-2 rounded-md mt-5 hover:bg-goldenWhite hover:text-secondaryDarker ease-in-out duration-150 cursor-default'>{isSubmitting ? 'Please Wait ...' : 'Submit'}</button>
         </Form>
       </section>
     </div>
