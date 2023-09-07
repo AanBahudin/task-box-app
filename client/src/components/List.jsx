@@ -40,7 +40,7 @@ const List = ({ status, todo, _id, createdAt }) => {
     }
 
   return (
-   <section className="flex items-center w-full justify-between text-[#BDBEBC] my-3 transition ease-in-out duration-150">
+   <section className="flex md:text-md items-center w-full justify-between text-[#BDBEBC] my-3 transition ease-in-out duration-150">
         <h5 className="w-[25%]">{todo}</h5>
         <p className="bg-[#1C2E34] px-3 py-1 rounded-md min-w-[120px] text-center">{status}</p>
         
@@ -51,7 +51,7 @@ const List = ({ status, todo, _id, createdAt }) => {
             <AiFillDelete onClick={() => deleteTodo(_id)} />
         </div>
 
-        <p className='text-secondaryDarker italic lowercase text-sm'>{timeStatus}</p>
+        <p className='text-secondary italic md:visible hidden lowercase text-sm'>{timeStatus}</p>
     </section>
   )
 }
