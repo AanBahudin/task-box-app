@@ -2,13 +2,16 @@
 import { AiFillDelete, AiFillEdit, AiFillSetting } from 'react-icons/ai'
 import { BiCheck } from 'react-icons/bi'
 import axios from 'axios'
+import moment from 'moment'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 
 
-const List = ({ status, todo, _id }) => {
+const List = ({ status, todo, _id, createdAt }) => {
 
   const navigate = useNavigate()
+
+  const timeStatus = moment(createdAt).subtract(1, 'days').calendar().split(' ')[0];
 
   const deleteTodo = async(id) => {
     try {
@@ -42,6 +45,8 @@ const List = ({ status, todo, _id }) => {
             <AiFillEdit />
             <AiFillDelete onClick={() => deleteTodo(_id)} />
         </div>
+
+        <p className='text-secondaryDarker italic lowercase text-sm'>{timeStatus}</p>
     </section>
   )
 }
