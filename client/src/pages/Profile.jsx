@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import avatar from '../assets/images/user.png'
-import { Form,useOutletContext, redirect, Link } from 'react-router-dom'
+import { Form,useOutletContext, redirect } from 'react-router-dom'
 import moment from 'moment/moment'
 import axios from 'axios'
 import {AiFillInstagram, AiFillTwitterSquare} from 'react-icons/ai'
@@ -47,8 +47,8 @@ const Profile = () => {
               <p className='text-sm mb-2'>social</p>
 
               <article className='flex gap-x-4'>
-                {user?.instagramURL && (<Link to={user?.instagramURL}> <AiFillInstagram /> </Link>) }
-                {user?.twitterURL && (<Link to={user?.twitterURL}> <AiFillTwitterSquare /> </Link>) }
+                {user?.instagramURL && (<a href={user?.instagramURL} target='_blank' rel="noreferrer"> <AiFillInstagram /> </a>) }
+                {user?.twitterURL && (<a href={user?.twitterURL} target='_blank' rel='noreferrer' > <AiFillTwitterSquare /> </a>) }
               </article>
             </div>
 

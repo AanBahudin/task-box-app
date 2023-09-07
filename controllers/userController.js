@@ -4,7 +4,6 @@ import { createToken } from "../utils/jwt.js"
 import mongoose from "mongoose"
 
 export const getUserInfo = async (req, res) => {
-    console.log(req.user);
     const user = await User.findOne({_id: req.user.userId}).select('-password')
 
     res.status(StatusCodes.OK).json({user})
