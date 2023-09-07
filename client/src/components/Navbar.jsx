@@ -11,7 +11,9 @@ const Navbar = ({user}) => {
 
   return (
     <div className="w-full py-5 px-10 flex justify-between text-[#BDBEBC] items-center bg-[#1C2E34]">
-        <Logo />
+        <Link to='/'>
+          <Logo />
+        </Link>
 
         <section className='flex items-center justify-between gap-x-8'>
                 <Link to='profile' className='flex justify-between items-center gap-x-4 cursor-default'>
