@@ -1,8 +1,7 @@
 import { body, param, validationResult } from "express-validator";
-import { StatusCodes } from "http-status-codes";
 import { NotFoundError, BadRequestError, UnauthenticatedError, UnauthorizedError } from "../errors/custom-errors.js";
 import mongoose from "mongoose";
-import { TODO_STATUS } from "../utils/todoStatus.js";
+
 import Todo from "../model/Todo.js";
 import User from "../model/User.js";
 
@@ -87,4 +86,43 @@ export const validateParamTodo = withValidationErrors([
                 throw new NotFoundError('No Jobs!')
             }
         })
+])
+
+export const updateUserValidation = withValidationErrors([
+    body('instagramURL')
+        .isLength({min: 15})
+        .withMessage('Url is to short')
+        .contains('https://www.instagram.com/')
+        .withMessage('Instagram URL is invalid'),
+    body('twitterURL')
+        .isLength({min: 15})
+        .withMessage('Url is to short')
+        .contains('https://twitter.com/')
+        .withMessage('Twitter URL is invalid'),
+    body('email')
+        .notEmpty()
+        .withMessage('email is required')
+        .escape()
+        .isEmail()
+        .withMessage('require valid email')
+        .custom(async (email) => {
+            const isEmailExist = await User.findOne({email})
+            if (!isEmailExist) {
+                throw new NotFoundError('Cannot find this email!')
+            }
+        }),
+    body('name')
+        .notEmpty()
+        .withMessage('name is required')
+        .escape()
+        .isLength({min: 3})
+        .withMessage('name is to short'),
+    body('lastName')
+        .isLength({min: 2})
+        .withMessage('lastname is to short')
+        .escape(),
+    body('location')
+        .isLength({min: 3})
+        .withMessage('location is to short')
+        .escape(),
 ])

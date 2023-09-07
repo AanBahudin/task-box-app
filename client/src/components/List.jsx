@@ -23,7 +23,7 @@ const List = ({ status, todo, _id }) => {
   const updateTodoStatus = async (id, status) => {
         try {
             await axios.patch(`/api/v1/todo/${id}`, {todo, status})
-            toast.success('Task completed')
+            toast(`Task ${status}`)
             return navigate('.')
         } catch (error) {
             toast.error(error.response.data.msg)

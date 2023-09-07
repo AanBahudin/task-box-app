@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import logo from '../assets/images/logo1.png'
 
 const Logo = ({center}) => {
