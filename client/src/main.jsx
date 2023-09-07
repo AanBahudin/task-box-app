@@ -7,6 +7,6 @@ import { ToastContainer } from 'react-toastify'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <>
     <App />
-    <ToastContainer position='top-right' hideProgressBar={true} autoClose={2000} closeOnClick />
+    <ToastContainer position='top-right' hideProgressBar={true} autoClose={2000} closeOnClick theme='dark' />
   </>
 )
