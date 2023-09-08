@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import axios from 'axios'
 import {Logo} from '../components'
-import { Link, Form, redirect } from 'react-router-dom'
+import { Link, Form, redirect, useNavigation } from 'react-router-dom'
 import {toast} from 'react-toastify'
 import {FormInput} from '../components'
 
@@ -20,6 +20,10 @@ export const action = async ({request}) => {
 }
 
 const Register = () => {
+
+    const navigation = useNavigation()
+    const isSubmitting = navigation.state === 'submitting'
+
   return (
     <div className="bg-primary min-w-[100vw] min-h-[100vh] flex items-center justify-center">
         <Form method='POST' className="py-5 px-10 login-container rounded-md border-t-8 border-goldenWhite lg:w-[31%] text-center text-goldenWhite bg-secondary">
@@ -49,7 +53,7 @@ const Register = () => {
                 labelFor="password"
                 full
             />
-            <button className='bg-secondaryDarker text-goldenWhite cursor-default py-2 w-full mt-5 rounded-md'>Submit</button>
+            <button disabled={true} className='bg-secondaryDarker text-goldenWhite cursor-default py-2 w-full mt-5 rounded-md'>{isSubmitting ? 'Creating Account..' : 'Submit'}</button>
 
             <p className='mt-4'>already have an account? <Link to='/' className='font-bold underline'>login</Link> here</p>
         </Form>
