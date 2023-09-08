@@ -17,6 +17,10 @@ export const action = async({ request }) => {
 }
 
 
+const styleSection = `
+    w-full md:w-[80%] h-[100vh]  mx-auto flex items-center justify-center flex-col
+`
+
 const Todo = () => {
 
     const {jobData} = useOutletContext()
@@ -25,7 +29,7 @@ const Todo = () => {
     return (
         <div className="w-[100vw] min-h-[100vh] bg-[#030C0E]">
             
-            <section className="w-full md:w-[80%] h-[100vh] mx-auto flex items-center justify-center flex-col">
+            <section className={styleSection}>
 
                 {/* <h1 className="text-[#BDBEBC] text-4xl font-medium">Todo List</h1> */}
 

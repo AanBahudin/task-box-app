@@ -19,21 +19,22 @@ const List = ({ status, todo, _id, createdAt }) => {
   const navigate = useNavigate() 
   const timeStatus = moment(createdAt).calendar().split(' ')[0];
 
-    const updateTodoTitle = async (e) => {
-      e.preventDefault()
-      try {
-        await axios.patch(`/api/v1/todo/${todoId}`, {todo: todoValue, status})
-        setIsEditing(false)
-        setTodoId('')
-        toast.success('task updated')
-        return navigate('.')
-      } catch (error) {
-        console.log(error);
-        setIsEditing(false)
-        setTodoId('')
-        toast.error(error.response.data.msg)
-      }
+
+  const updateTodoTitle = async (e) => {
+    e.preventDefault()
+    try {
+      await axios.patch(`/api/v1/todo/${todoId}`, {todo: todoValue, status})
+      setIsEditing(false)
+      setTodoId('')
+      toast.success('task updated')
+      return navigate('.')
+    } catch (error) {
+      console.log(error);
+      setIsEditing(false)
+      setTodoId('')
+      toast.error(error.response.data.msg)
     }
+  }
 
   return (
    <section className="flex md:text-md items-center w-full justify-between text-[#BDBEBC] my-3 transition ease-in-out duration-150">

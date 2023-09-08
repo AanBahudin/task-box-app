@@ -38,10 +38,12 @@ const Profile = () => {
       <ProfileContainer user={user} />  
       
       {/* UPDATE USER FORM */}
-      <section className='my-10  w-[80%] mx-auto py-10 px-10 rounded-md bg-secondary'>
-        <h1 className='text-center text-4xl mb-10'>Edit Profile</h1>
-        <Form method="POST" encType='multipart/form-data' className='flex w-full gap-5 flex-wrap items-center justify-start'>
+      <section className='my-2 md:my-10 w-[90%] md:w-[80%] mx-auto py-10 px-10 rounded-md bg-secondary'>
+        <h1 className='text-center text-2xl lg:text-4xl mb-10'>Edit Profile</h1>
+        
+        <Form method="POST" encType='multipart/form-data' className='flex flex-col lg:flex-row w-full gap-5 flex-wrap items-center justify-start'>
 
+          {/* Email Input */}
           <FormInput
             labelText="email"
             labelFor="email"
@@ -50,6 +52,7 @@ const Profile = () => {
             defaultValue={user?.email}
           />
 
+          {/* Name Input */}
           <FormInput 
             labelText="name"
             labelFor= "name"
@@ -58,6 +61,7 @@ const Profile = () => {
             defaultValue={user?.name}
           />
 
+          {/* Lastname Input */}
           <FormInput 
             labelText="Lastname"
             labelFor = "lastName"
@@ -66,6 +70,7 @@ const Profile = () => {
             defaultValue={user?.lastName}
           />
 
+          {/* Location Input */}
           <FormInput 
             labelText="location"
             labelFor = "location"
@@ -74,6 +79,7 @@ const Profile = () => {
             defaultValue={user?.location}
           />
 
+          {/* Instagram URL Input */}
           <FormInput 
             labelText="Instagram url"
             labelFor = "instagramURL"
@@ -82,6 +88,7 @@ const Profile = () => {
             defaultValue={user?.instagramURL}
           />
 
+          {/* Twitter Input */}
           <FormInput 
             labelText="Twitter url"
             labelFor = "twitterURL"
