@@ -53,7 +53,7 @@ const Register = () => {
                 labelFor="password"
                 full
             />
-            <button disabled={true} className='bg-secondaryDarker text-goldenWhite cursor-default py-2 w-full mt-5 rounded-md'>{isSubmitting ? 'Creating Account..' : 'Submit'}</button>
+            <button disabled={isSubmitting} className='bg-secondaryDarker disabled:opacity-30 disabled:cursor-progress text-goldenWhite cursor-default py-2 w-full mt-5 rounded-md'>{isSubmitting ? 'Creating Account..' : 'Submit'}</button>
 
             <p className='mt-4'>already have an account? <Link to='/' className='font-bold underline'>login</Link> here</p>
         </Form>

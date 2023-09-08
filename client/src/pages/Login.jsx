@@ -45,7 +45,7 @@ const Login = () => {
                 full
             />
             
-            <button disabled={isSubmitting} type='submit' className='bg-secondaryDarker text-goldenWhite cursor-default py-2 w-full mt-5 rounded-md'>{isSubmitting ? 'Logged In ...' : 'Login'}</button>
+            <button disabled={isSubmitting} type='submit' className='bg-secondaryDarker disabled:opacity-30 disabled:cursor-progress text-goldenWhite cursor-default py-2 w-full mt-5 rounded-md'>{isSubmitting ? 'Logged In ...' : 'Login'}</button>
 
             <p className='mt-4'>Not a member yet? <Link to='register' className='font-bold underline'>register</Link> here</p>
         </Form>
