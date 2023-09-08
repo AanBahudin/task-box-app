@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { AiFillDelete, AiFillEdit, AiFillSetting } from 'react-icons/ai'
 import { BiCheck } from 'react-icons/bi'
+import { InputList } from '../components'
 import axios from 'axios'
 import moment from 'moment'
 import { toast } from 'react-toastify'
@@ -62,9 +63,7 @@ const List = ({ status, todo, _id, createdAt }) => {
   return (
    <section className="flex md:text-md items-center w-full justify-between text-[#BDBEBC] my-3 transition ease-in-out duration-150">
         {isEditing ? (
-          <form onSubmit={e => updateTodoTitle(e)} className='w-[25%]'>
-            <input autoFocus type="text" className='rounded-md w-[120%] sm:w-[110%] bg-secondary py-[6px] px-4 outline ring-0 text-sm' value={todoValue} onChange={(e) => setTodoValue(e.target.value)} name='todo' id='todo'  />
-          </form>
+         <InputList updateTodoTitle={updateTodoTitle} todoValue={todoValue} setTodoValue={setTodoValue} />
         ) : (
           <h5 className={`w-[25%] ${status === 'completed' ? 'line-through italic opacity-40' : null}`}>{todo}</h5>
         ) }
