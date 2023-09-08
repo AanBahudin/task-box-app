@@ -28,11 +28,37 @@ const Dashboard = () => {
     toast.success('Logging Out..')
   }
 
+  const deleteTodo = async(id) => {
+    try {
+      await axios.delete(`/api/v1/todo/${id}`)
+      toast.success('Successfully deleted ...')
+      return navigate('.')
+    } catch (error) {
+      toast.error(error.response.data.msg)
+    }
+  }
+
+  const updateTodoStatus = async (id, recentStatus, status, todo) => {
+    if (recentStatus === status) {
+      toast.info(`task is already ${recentStatus}`)
+    } else {
+      try {
+          await axios.patch(`/api/v1/todo/${id}`, {todo, status})
+          toast.success(`Task ${status}`)
+          return navigate('.')
+      } catch (error) {
+          toast.error(error.response.data.msg)
+          return error
+      }
+    }}
+
   return (
     <DashboardContext.Provider value={{
       user,
       jobData,
-      logoutUser
+      logoutUser,
+      deleteTodo,
+      updateTodoStatus
     }}>
       <div className="w-full h-full relative">
           <Navbar user={user.user} />

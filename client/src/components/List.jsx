@@ -1,12 +1,11 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react'
-import { AiFillDelete, AiFillEdit, AiFillSetting } from 'react-icons/ai'
-import { BiCheck } from 'react-icons/bi'
-import { InputList } from '../components'
+import { ListButtons, InputList } from '../components'
 import axios from 'axios'
 import moment from 'moment'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
+import { useDashboardContext } from '../pages/Dashboard'
 
 
 const List = ({ status, todo, _id, createdAt }) => {
@@ -14,40 +13,16 @@ const List = ({ status, todo, _id, createdAt }) => {
   const [isEditing, setIsEditing] = useState(false)
   const [todoId, setTodoId] = useState('')
   const [todoValue, setTodoValue] = useState(todo)
+  
+  const {deleteTodo, updateTodoStatus} = useDashboardContext()
 
-  const navigate = useNavigate()
+  const navigate = useNavigate() 
   const timeStatus = moment(createdAt).calendar().split(' ')[0];
-
-  const deleteTodo = async(id) => {
-    try {
-      await axios.delete(`/api/v1/todo/${id}`)
-      toast.success('Successfully deleted ...')
-      return navigate('.')
-    } catch (error) {
-      toast.error(error.response.data.msg)
-    }
-  }
-
-  const updateTodoStatus = async (id, recentStatus, status) => {
-
-    if (recentStatus === status) {
-      toast.info(`task is already ${recentStatus}`)
-    } else {
-      try {
-          await axios.patch(`/api/v1/todo/${id}`, {todo, status})
-          toast.success(`Task ${status}`)
-          return navigate('.')
-      } catch (error) {
-          toast.error(error.response.data.msg)
-          return error
-      }
-    }
-    }
 
     const updateTodoTitle = async (e) => {
       e.preventDefault()
       try {
-        await axios.patch(`api/v1/todo/${todoId}`, {todo: todoValue, status})
+        await axios.patch(`/api/v1/todo/${todoId}`, {todo: todoValue, status})
         setIsEditing(false)
         setTodoId('')
         toast.success('task updated')
@@ -70,15 +45,7 @@ const List = ({ status, todo, _id, createdAt }) => {
         
         <p className="bg-[#1C2E34] px-3 py-1 rounded-md min-w-[120px] text-center">{status}</p>
       
-        <div className='flex items-center justify-between gap-x-3'>
-            <BiCheck onClick={() => updateTodoStatus(_id, status, 'completed')} />
-            <AiFillSetting onClick={() => updateTodoStatus(_id, status, 'on Progress')}/>
-            <AiFillEdit onClick={() => {
-              setIsEditing(!isEditing)
-              setTodoId(_id)
-            }} />
-            <AiFillDelete onClick={() => deleteTodo(_id)} />
-        </div>
+        <ListButtons updateTodoTitle={updateTodoStatus} id={_id} todo={todo} setTodoId={setTodoId} status={status} setIsEditing={setIsEditing} isEditing={isEditing} updateTodoStatus={updateTodoStatus} deleteTodo={deleteTodo} />
 
         <p className='text-secondary italic md:visible hidden lowercase text-sm'>{timeStatus}</p>
     </section>
