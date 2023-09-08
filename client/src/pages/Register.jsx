@@ -3,6 +3,7 @@ import axios from 'axios'
 import {Logo} from '../components'
 import { Link, Form, redirect } from 'react-router-dom'
 import {toast} from 'react-toastify'
+import {FormInput} from '../components'
 
 export const action = async ({request}) => {
     const formData = await request.formData()
@@ -25,21 +26,29 @@ const Register = () => {
             <Logo center />
             <h3 className="text-2xl my-5">Register</h3>
 
-            <div className="flex flex-col justify-start items-start">
-                <label htmlFor="name">Name</label>
-                <input required className="px-5 outline-none py-1 mt-2 w-full rounded-lg bg-secondaryDarker border" type="text" name="name" id="name" />
-            </div>
+            <FormInput 
+                type="text"
+                name="name"
+                labelText="Name"
+                labelFor="name"
+                full
+            />
 
-            <div className="flex flex-col mt-5 justify-start items-start">
-                <label htmlFor="email">Email</label>
-                <input required className="px-5 outline-none py-1 mt-2 w-full rounded-lg bg-secondaryDarker border" type="email" name="email" id="email" />
-            </div>
+            <FormInput 
+                type="email"
+                name="email"
+                labelText="Email"
+                labelFor="email"
+                full
+            />
 
-            <div className="flex flex-col mt-5 justify-start items-start">
-                <label htmlFor="password">Password</label>
-                <input required className="px-5 outline-none py-1 mt-2 w-full rounded-lg bg-secondaryDarker border" type="password" name="password" id="password" />
-            </div>
-
+            <FormInput 
+                type="password"
+                name="password"
+                labelText="Account Password"
+                labelFor="password"
+                full
+            />
             <button className='bg-secondaryDarker text-goldenWhite cursor-default py-2 w-full mt-5 rounded-md'>Submit</button>
 
             <p className='mt-4'>already have an account? <Link to='/' className='font-bold underline'>login</Link> here</p>
