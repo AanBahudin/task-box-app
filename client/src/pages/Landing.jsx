@@ -6,8 +6,8 @@ const Landing = () => {
       <Hero />
       <About />
       <LandingBox />
-      <SmallInfo title="LET'S CREATE YOUR ACCOUNT !" buttonText='Get Started ->' />
       <OurMIssion />
+      <SmallInfo title="LET'S CREATE YOUR ACCOUNT !" buttonText='Get Started ->' />
     </>
   )
 }

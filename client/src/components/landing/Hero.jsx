@@ -5,7 +5,7 @@ const Hero = () => {
   return (
      <div className="
       min-w-full min-h-[100vh] 
-      bg-hero-pattern bg-no-repeat bg-stre bg-center
+      bg-hero-pattern bg-no-repeat bg-center
       flex items-center justify-between
       duration-150
     ">

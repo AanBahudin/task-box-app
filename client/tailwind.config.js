@@ -15,6 +15,7 @@ export default {
       },
       backgroundImage: {
         'hero-pattern': "url('./src/assets/images/backdrop.png')",
+        'mission-bg': "url('./src/assets/images/missionbg.png')",
       }
     },
   },
