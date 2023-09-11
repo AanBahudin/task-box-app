@@ -1,5 +1,5 @@
 import { missionContent } from '../../utils/helper'
-
+import { motion } from 'framer-motion'
 
 const OurMIssion = () => {
   return (
@@ -8,11 +8,13 @@ const OurMIssion = () => {
 
         {missionContent.map((item, index) => {
           return (
-          <div key={index} className="p-5 border-2 border-[#9A6EBE] bg-white self-stretch hover:border-[#3498DB] hover:drop-shadow-2xl hover:-translate-y-4 duration-200 rounded-lg w-fit max-w-[30%]">
+          <motion.div
+            key={index} 
+            className="p-5 border-2 border-[#9A6EBE] bg-white self-stretch hover:border-[#3498DB] hover:drop-shadow-2xl hover:-translate-y-4 duration-200 rounded-lg w-fit max-w-[30%]">
             <img className='w-[40%] mx-auto' src={item.logo} alt="" />
             <h2 className='font-semibold my-5'>{item.title}</h2>
-            <p className='text-sm'>{item.text}</p>
-          </div>
+            <p className='text-sm'>{item.text}</p> 
+          </motion.div>
           )
         })}
 
