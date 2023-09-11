@@ -1,4 +1,3 @@
-import bellImage from '../../assets/images/bell.png'
 import { boxContent } from '../../utils/helper'
 
 const LandingBox = () => {
