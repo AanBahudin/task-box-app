@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { Dashboard, Profile, Register, Login, Error, Todo, HomeLayout, EditTodo} from "./pages"
+import { Dashboard, Profile, Register, Landing, Login, Error, Todo, HomeLayout, EditTodo} from "./pages"
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 import { loader as dashboardLoader } from './pages/Dashboard'
@@ -26,6 +26,10 @@ const router = createBrowserRouter([
     element: <HomeLayout />,
     loader: homeLayoutLoader,
     children: [
+      {
+        path: 'landing',
+        element: <Landing />
+      },
       {
         path: 'register',
         element: <Register />,
