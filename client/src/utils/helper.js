@@ -11,17 +11,17 @@ export const boxContent = [
     },
     {
         logo: organize,
-        text: 'TaskBox will remind you of crucial tasks that need your attention,',
+        text: 'You can quickly create task lists and categorize them to suit your needs.',
         title: 'Better Organization'
     },
     {
         logo: prioritize,
-        text: 'TaskBox will remind you of crucial tasks that need your attention',
+        text: 'Easily set priorities for your tasks, so you always know what to tackle next.',
         title: 'Prioritize Your Tasks'
     },
     {
         logo: access,
-        text: 'TaskBox will remind you of crucial tasks that need your attention',
+        text: 'Accessible from various devices, allowing you to access your task list from anywhere, at any time.',
         title: 'Access Anywhere'
     }
 ]

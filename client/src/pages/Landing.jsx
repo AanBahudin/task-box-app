@@ -4,11 +4,10 @@ const Landing = () => {
   return (
     <>
       <Hero />
-      <LandingBox />
-      <SmallInfo title='NOT SURE ? TRY OUT OUR DEMO APP !' buttonText='Try Demo ->' />
       <About />
-      <OurMIssion />
+      <LandingBox />
       <SmallInfo title="LET'S CREATE YOUR ACCOUNT !" buttonText='Get Started ->' />
+      <OurMIssion />
     </>
   )
 }

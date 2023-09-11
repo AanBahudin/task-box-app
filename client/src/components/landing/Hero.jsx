@@ -13,8 +13,8 @@ const Hero = () => {
       <div className="w-[98%] mx-auto flex items-center justify-center flex-row">
         {/* TITLE SECTION */}
         <section className='w-1/2'>
-          <h1 className='text-4xl w-[80%] tracking-widest text-bluePrimary font-bold'>Take Control of Your <br/> Life, One Task at a Time </h1>
-          <p className='text-md w-[80%] my-5'>You can effortlessly plan, organize, and conquer your tasks hassle-free.</p>
+          <h1 className='text-4xl w-[80%] tracking-widest text-bluePrimary font-bold'>Task Box: Your Digital Task Assistant</h1>
+          <p className='text-md w-[80%] my-5'>Task Box helps you stay on top of your to-do list effortlessly. Boost your productivity and achieve your goals.</p>
 
           {/* BUTTON CONTAINER */}
           <div className='flex gap-x-12'>
