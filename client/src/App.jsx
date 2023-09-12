@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { Dashboard, Profile, Register, Landing, Login, Error, Todo, HomeLayout, EditTodo} from "./pages"
+import { Dashboard, Profile, Register, Landing, Login, Error, HomeLayout, EditTodo, ShowSingleTask, AddTask, Stats} from "./pages"
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 import { loader as dashboardLoader } from './pages/Dashboard'
@@ -8,7 +8,6 @@ import { loader as homeLayoutLoader } from './pages/HomeLayout'
 import { action as loginAction } from './pages/Login'
 import {action as profileAction} from './pages/Profile'
 import { action as registerAction } from './pages/Register'
-import {action as todoAction} from './pages/Todo'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -54,8 +53,15 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Todo />,
-        action: todoAction
+        element: <Stats />
+      },
+      {
+        path: 'create',
+        element: <AddTask />
+      },
+      {
+        path: 'task/:id',
+        element: <ShowSingleTask />
       },
       {
         path: 'profile',
@@ -63,7 +69,7 @@ const router = createBrowserRouter([
         action: profileAction
       },
       {
-        path: 'edit-todo',
+        path: 'edit/:id',
         element: <EditTodo />
       }
     ]

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-const Logo = ({center}) => {
+const Logo = () => {
   return (
     <h1>logo</h1>
   )

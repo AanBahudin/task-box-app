@@ -1,3 +1,4 @@
+import AddTask from './AddTask'
 import Dashboard from "./Dashboard";
 import EditTodo from "./EditTodo";
 import Error from "./Error";
@@ -6,9 +7,11 @@ import Landing from "./Landing";
 import Login from "./Login";
 import Profile from "./Profile";
 import Register from "./Register";
-import Todo from "./Todo";
+import ShowSingleTask from './ShowSingleTask'
+import Stats from './Stats'
 
-export { 
+export {
+    AddTask,
     Dashboard,
     EditTodo,
     Error,
@@ -17,5 +20,6 @@ export {
     Login,
     Profile,
     Register,
-    Todo
+    ShowSingleTask,
+    Stats
 }

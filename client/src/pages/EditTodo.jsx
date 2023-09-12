@@ -2,7 +2,7 @@
 
 const EditTodo = () => {
   return (
-    <div className="w-full h-full bg-primary text-goldenWhite">
+    <div className="">
         profile
     </div>
   )
