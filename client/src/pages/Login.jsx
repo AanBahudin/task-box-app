@@ -30,7 +30,7 @@ const Login = () => {
         <section className='flex flex-col items-center justify-center w-[35%] h-[100vh] bg-gradient-to-r from-[#9B59B6] to-[#3498DB]'>
             <div className='p-10 text-white'>
                 <h3 className='font-semibold text-3xl'>Log In to Your TaskBox Account</h3>
-                <p className='text-sm mt-5 mb-7 w-[79%]'>Let's start organizing your tasks and boosting your productivity.</p>
+                <p className='text-sm mt-5 mb-7 w-[79%]'>Let`&apos;`s start organizing your tasks and boosting your productivity.</p>
                 <img className='w-[90%] mt-8 mx-auto' src={registerImage} alt="" />
             </div>
         </section>
@@ -48,7 +48,7 @@ const Login = () => {
 
                     <p className='text-xs my-10 italic'>By logging in, you can access your TaskBox account and efficiently manage your tasks. Your data security and privacy are our top priorities</p>
                     <button disabled={isSubmitting} type='submit' className='cursor-default w-full disabled:cursor-not-allowed hover:bg-[#854c9c] bg-[#9B59B6] text-white text-center py-2 px-6 rounded-md my-5'>{isSubmitting ? 'Logged In ...' : 'Login Now'}</button>
-                    <p className='text-sm text-center'>Don't have an account? <Link to='/register' className='font-semibold text-bluePrimary hover:underline cursor-default'> [Register here]  </Link> </p>
+                    <p className='text-sm text-center'>Don`&apos;`t have an account? <Link to='/register' className='font-semibold text-bluePrimary hover:underline cursor-default'> [Register here]  </Link> </p>
                 </Form>
             </div>
         </section>
