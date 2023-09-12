@@ -1,4 +1,4 @@
-import heroImg from '../../assets/images/newhero.png'
+import heroImg from '../../assets/images/newhero.svg'
 import { Link } from 'react-router-dom'
 
 const Hero = () => {

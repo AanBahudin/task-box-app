@@ -12,7 +12,7 @@ export const action = async({ request }) => {
   try {
     await axios.post('/api/v1/auth/login', loginData)
     toast.success('Successfully Login!')
-    return redirect('dashboard')
+    return redirect('/dashboard')
   } catch (error) {
     toast.error(error.response.data.msg)
     return redirect('.')
@@ -47,7 +47,7 @@ const Login = () => {
                     </div>
 
                     <p className='text-xs my-10 italic'>By logging in, you can access your TaskBox account and efficiently manage your tasks. Your data security and privacy are our top priorities</p>
-                    <button type='submit' className='cursor-default w-full hover:bg-[#854c9c] bg-[#9B59B6] text-white text-center py-2 px-6 rounded-md my-5'>Login Now</button>
+                    <button disabled={isSubmitting} type='submit' className='cursor-default w-full disabled:cursor-not-allowed hover:bg-[#854c9c] bg-[#9B59B6] text-white text-center py-2 px-6 rounded-md my-5'>{isSubmitting ? 'Logged In ...' : 'Login Now'}</button>
                     <p className='text-sm text-center'>Don't have an account? <Link to='/register' className='font-semibold text-bluePrimary hover:underline cursor-default'> [Register here]  </Link> </p>
                 </Form>
             </div>
