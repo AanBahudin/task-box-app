@@ -1,7 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import React, { useContext } from "react"
 import { Outlet, redirect, useLoaderData, useNavigate } from "react-router-dom"
-import {Navbar} from "../components"
 import axios from 'axios'
 import { toast } from "react-toastify"
 
@@ -61,7 +60,6 @@ const Dashboard = () => {
       updateTodoStatus
     }}>
       <div className="w-full h-full relative">
-          <Navbar user={user.user} />
           <Outlet context={{jobData, user: user.user}} />
       </div>
     </DashboardContext.Provider>
