@@ -12,3 +12,11 @@
     font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth;
 }
+
+.register-form {
+    background-color: #e5e5f7;
+    opacity: 0.8;
+    background-image:  radial-gradient(#444cf7 0.6000000000000001px, transparent 0.6000000000000001px), radial-gradient(#444cf7 0.6000000000000001px, #e5e5f7 0.6000000000000001px);
+    background-size: 24px 24px;
+    background-position: 0 0,12px 12px;
+}
