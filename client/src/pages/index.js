@@ -1,4 +1,5 @@
 import AddTask from './AddTask'
+import AllTasks from './AllTasks';
 import Dashboard from "./Dashboard";
 import EditTodo from "./EditTodo";
 import Error from "./Error";
@@ -12,6 +13,7 @@ import Stats from './Stats'
 
 export {
     AddTask,
+    AllTasks,
     Dashboard,
     EditTodo,
     Error,

@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { Dashboard, Profile, Register, Landing, Login, Error, HomeLayout, EditTodo, ShowSingleTask, AddTask, Stats} from "./pages"
+import { Dashboard, Profile, Register, Landing, Login, Error, HomeLayout, EditTodo, ShowSingleTask, AddTask, Stats, AllTasks} from "./pages"
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 import { loader as dashboardLoader } from './pages/Dashboard'
@@ -58,6 +58,10 @@ const router = createBrowserRouter([
       {
         path: 'create',
         element: <AddTask />
+      },
+      {
+        path: 'tasks',
+        element: <AllTasks />
       },
       {
         path: 'task/:id',
