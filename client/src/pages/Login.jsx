@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import { Logo, FormInput } from '../components'
+import { FormInput } from '../components'
 import { Link, Form, redirect, useNavigation } from 'react-router-dom'
 import axios from 'axios'
 import registerImage from '../assets/images/signin.svg'

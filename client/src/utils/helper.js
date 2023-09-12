@@ -2,8 +2,9 @@ import notification from '../assets/images/bell.png'
 import organize from '../assets/images/gear.png'
 import prioritize from '../assets/images/prioritize.png'
 import access from '../assets/images/knowledge.png'
+
 import userFriendly from '../assets/images/userfriendly.svg'
-import passion from '../assets/images/passion.png'
+import passion from '../assets/images/passion.svg'
 import cross from '../assets/images/newhero.svg'
 
 export const boxContent = [
