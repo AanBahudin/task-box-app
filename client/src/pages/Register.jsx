@@ -28,7 +28,7 @@ const Register = () => {
   return (
     <div className='w-full flex max-h-full items-center duration-150 ease-in-out '>
 
-        <section className='flex flex-col items-center justify-center w-[35%] h-[100vh] bg-gradient-to-r from-[#9B59B6] to-[#3498DB]'>
+        <section className='hidden lg:flex flex-col items-center justify-center w-[35%] h-[100vh] bg-gradient-to-r from-[#9B59B6] to-[#3498DB]'>
             <div className='p-10 text-white'>
                 <h3 className='font-semibold text-3xl'>Create New Account</h3>
                 <p className='text-sm mt-5 mb-7 w-[79%]'>Welcome to TaskBox! Let's start organizing your tasks and boosting your productivity.</p>
@@ -36,7 +36,7 @@ const Register = () => {
             </div>
         </section>
 
-        <section className='flex items-center register-form justify-center w-[65%] h-[100vh] text-bluePrimary'>
+        <section className='flex items-center register-form justify-center w-full lg:w-[65%] h-[100vh] text-bluePrimary'>
             <div className='w-[85%] p-[5%]'>
                 <h2 className='font-semibold text-3xl'>Welcome to <span className='text-4xl font-bold'> TaskBox </span>! We're excited to have you on board.</h2>
                 <p className='text-sm mt-4'>Creating your TaskBox account is quick and easy. Just fill out the form below with your information to get started.</p>
