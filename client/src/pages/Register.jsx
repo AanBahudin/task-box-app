@@ -13,7 +13,7 @@ export const action = async ({request}) => {
     try {
         await axios.post('/api/v1/auth/register', data)
         toast.success('User Created!')
-        return redirect('/')
+        return redirect('/login')
     } catch (error) {
         toast.error(error.response.data.msg)
         return redirect('.')
@@ -50,7 +50,7 @@ const Register = () => {
                     </div>
 
                     <p className='text-xs my-3 italic'>By registering, you gain access to TaskBox's powerful task management features. We prioritize the security and privacy of your data.</p>
-                    <button type='submit' className='cursor-default w-full hover:bg-[#854c9c] bg-[#9B59B6] text-white text-center py-2 px-6 rounded-md my-5'>Register Now</button>
+                    <button disabled={isSubmitting} type='submit' className='cursor-default w-full disabled:cursor-not-allowed hover:bg-[#854c9c] bg-[#9B59B6] text-white text-center py-2 px-6 rounded-md my-5'>{isSubmitting ? 'Registering ...' : 'Register Now'}</button>
                     <p className='text-sm text-center'>Already have an account? <Link to='/login' className='font-semibold text-bluePrimary hover:underline cursor-default'> [Log in here]  </Link> </p>
                 </Form>
             </div>
