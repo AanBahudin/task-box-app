@@ -51,7 +51,7 @@ const Register = () => {
 
                     <p className='text-xs my-3 italic'>By registering, you gain access to TaskBox's powerful task management features. We prioritize the security and privacy of your data.</p>
                     <button type='submit' className='cursor-default w-full hover:bg-[#854c9c] bg-[#9B59B6] text-white text-center py-2 px-6 rounded-md my-5'>Register Now</button>
-                    <p className='text-sm text-center'>Already have an account? <Link to='login' className='font-semibold text-bluePrimary hover:underline cursor-default'> [Log in here]  </Link> </p>
+                    <p className='text-sm text-center'>Already have an account? <Link to='/login' className='font-semibold text-bluePrimary hover:underline cursor-default'> [Log in here]  </Link> </p>
                 </Form>
             </div>
         </section>
