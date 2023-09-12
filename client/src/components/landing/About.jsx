@@ -2,7 +2,7 @@ import aboutImage from '../../assets/images/about.png'
 
 const About = () => {
   return (
-    <div className="w-[80%] mx-auto flex justify-between items-center min-h-[30vh]">
+    <div className="w-[80%] mx-auto flex justify-between items-center min-h-[30vh]" id='about'>
       <section className='w-[45%] my-10 text-bluePrimary'>
         <h1 className='text-4xl font-semibold text-bluePrimary mb-5 '>About Us</h1>
         <h5>At TaskBox, we understand that in today's fast-paced world, staying organized is the key to success. Life can be hectic, and managing tasks efficiently can be a challenge. That's why we created TaskBox, the ultimate solution for task management.</h5>

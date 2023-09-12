@@ -27,7 +27,7 @@ const router = createBrowserRouter([
     loader: homeLayoutLoader,
     children: [
       {
-        path: 'landing',
+        index: true,
         element: <Landing />
       },
       {
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
         action: registerAction
       },
       {
-        index: true,
+        path: 'login',
         element: <Login />,
         action: loginAction,
       },

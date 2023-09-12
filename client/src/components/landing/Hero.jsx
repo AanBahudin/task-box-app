@@ -18,8 +18,8 @@ const Hero = () => {
 
           {/* BUTTON CONTAINER */}
           <div className='flex gap-x-12'>
-            <Link to='register' className='font-bold text-bluePrimary px-7 rounded-md py-2 border-[1.5px] border-black cursor-default'>Explore</Link>
-            <Link to='register' className='font-bold text-white bg-bluePrimary px-7 rounded-md py-2 cursor-default'>Get Started</Link>
+            <a href='#about' className='font-bold text-bluePrimary px-7 rounded-md py-2 border-[1.5px] border-black cursor-default'>Explore</a>
+            <Link to='/register' className='font-bold text-white bg-bluePrimary px-7 rounded-md py-2 cursor-default'>Get Started</Link>
           </div>
         </section>
 
