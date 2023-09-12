@@ -29,28 +29,26 @@ const Login = () => {
 
         <section className='flex flex-col items-center justify-center w-[35%] h-[100vh] bg-gradient-to-r from-[#9B59B6] to-[#3498DB]'>
             <div className='p-10 text-white'>
-                <h3 className='font-semibold text-3xl'>Create New Account</h3>
-                <p className='text-sm mt-5 mb-7 w-[79%]'>Welcome to TaskBox! Let's start organizing your tasks and boosting your productivity.</p>
+                <h3 className='font-semibold text-3xl'>Log In to Your TaskBox Account</h3>
+                <p className='text-sm mt-5 mb-7 w-[79%]'>Let's start organizing your tasks and boosting your productivity.</p>
                 <img className='w-[90%] mt-8 mx-auto' src={registerImage} alt="" />
             </div>
         </section>
 
         <section className='flex items-center register-form justify-center w-[65%] h-[100vh] text-bluePrimary'>
             <div className='w-[85%] p-[5%]'>
-                <h2 className='font-semibold text-3xl'>Welcome to <span className='text-4xl font-bold'> TaskBox </span>! We're excited to have you on board.</h2>
-                <p className='text-sm mt-4'>Creating your TaskBox account is quick and easy. Just fill out the form below with your information to get started.</p>
+                <h2 className='font-semibold text-3xl'>Welcome back to <span className='text-4xl font-bold'> TaskBox </span>!</h2>
+                <p className='text-sm mt-4'>Please log in to access your tasks and stay organized.</p>
 
                 <Form method='POST' className='mt-10 max-w-full'>
                     <div className='grid grid-cols-2 gap-x-10 gap gap-y-8'>
-                        <FormInput type="text" name="name" labelText="Name" labelFor="name" />
-                        <FormInput type="text" name="lastName" labelText="Lastname" labelFor="lastName" />
                         <FormInput type="email" name="email" labelText="Email" labelFor="email" />
                         <FormInput type="password" name="password" labelText="Account Password" labelFor="password" />
                     </div>
 
-                    <p className='text-xs my-3 italic'>By registering, you gain access to TaskBox's powerful task management features. We prioritize the security and privacy of your data.</p>
-                    <button type='submit' className='cursor-default w-full hover:bg-[#854c9c] bg-[#9B59B6] text-white text-center py-2 px-6 rounded-md my-5'>Register Now</button>
-                    <p className='text-sm text-center'>Already have an account? <Link to='/register' className='font-semibold text-bluePrimary hover:underline cursor-default'> [Log in here]  </Link> </p>
+                    <p className='text-xs my-10 italic'>By logging in, you can access your TaskBox account and efficiently manage your tasks. Your data security and privacy are our top priorities</p>
+                    <button type='submit' className='cursor-default w-full hover:bg-[#854c9c] bg-[#9B59B6] text-white text-center py-2 px-6 rounded-md my-5'>Login Now</button>
+                    <p className='text-sm text-center'>Don't have an account? <Link to='/register' className='font-semibold text-bluePrimary hover:underline cursor-default'> [Register here]  </Link> </p>
                 </Form>
             </div>
         </section>
@@ -59,22 +57,3 @@ const Login = () => {
 }
 
 export default Login
-{/* <FormInput 
-    type="email"
-    name="email"
-    labelText="Email"
-    labelFor="email"
-    full
-/>
-
-<FormInput 
-    type="password"
-    name="password"
-    labelText="Password"
-    labelFor="password"
-    full
-/>
-
-<button disabled={isSubmitting} type='submit' className='bg-secondaryDarker disabled:opacity-30 disabled:cursor-progress text-goldenWhite cursor-default py-2 w-full mt-5 rounded-md'>{isSubmitting ? 'Logged In ...' : 'Login'}</button>
-
-<p className='mt-4'>Not a member yet? <Link to='register' className='font-bold underline'>register</Link> here</p> */}
