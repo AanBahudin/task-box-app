@@ -5,31 +5,14 @@ const TodoSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please provide name"]
     },
-    lastName: {
-        type: String
-    },
-    email: {
-        type: String
-    },
-    location: {
-        type: String
-    },
-    age: {
-        type: Number
-    },
-    instagramURL: {
-        type: String
-    },
-    twitterURL: {
-        type: String
-    },
-    avatar: {
-        type: String,
-        avatarPublicId: String
-    },
-    password: {
-        type: String
-    },
+    lastName: { type: String },
+    email: { type: String },
+    location: { type: String },
+    age: { type: Number },
+    instagramURL: { type: String },
+    twitterURL: {  type: String },
+    avatar: { type: String, avatarPublicId: String },
+    password: { type: String },
 }, {timestamps: true})
 
 export default mongoose.model('User', TodoSchema)
