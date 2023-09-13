@@ -5,10 +5,19 @@ const TodoSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please provide todo"]
     },
+    todoDetail: {
+        type: String,
+        maxLength: 2000
+    },
     status: {
         type: String,
         enum: ['pending', 'on Progress', 'completed'],
         default: 'pending'
+    },
+    priority: {
+        type: String,
+        enum: ['Low', 'Medium', 'High'],
+        default: 'Low'
     },
     createdBy: {
         type: mongoose.Types.ObjectId,
