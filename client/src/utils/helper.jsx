@@ -1,3 +1,5 @@
+import { BsClipboard2Fill, BsClipboard2CheckFill, BsClipboard2PulseFill, BsClipboard2XFill } from 'react-icons/bs'
+
 import notification from '../assets/images/bell.png'
 import organize from '../assets/images/gear.png'
 import prioritize from '../assets/images/prioritize.png'
@@ -6,6 +8,7 @@ import access from '../assets/images/knowledge.png'
 import userFriendly from '../assets/images/userfriendly.svg'
 import passion from '../assets/images/passion.svg'
 import cross from '../assets/images/newhero.svg'
+
 
 export const boxContent = [
     {
@@ -45,5 +48,28 @@ export const missionContent = [
         logo: passion,
         title: 'Passion for Productivity',
         text: "Our team is dedicated to creating an intuitive and powerful tool that simplifies your life."
+    },
+]
+
+export const taskManagementOverviewExample = [
+    {
+        title: 'TOTAL TASK CREATED',
+        total: 23,
+        logo: <BsClipboard2Fill />
+    },
+    {
+        title: 'COMPLETED TASKS',
+        total: 23,
+        logo: <BsClipboard2CheckFill />
+    },
+    {
+        title: 'TASKS IN PROGRESS',
+        total: 23,
+        logo: <BsClipboard2PulseFill />
+    },
+    {
+        title: 'TASKS ON HOLD',
+        total: 23,
+        logo: <BsClipboard2XFill />
     },
 ]
