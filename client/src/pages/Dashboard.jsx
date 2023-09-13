@@ -4,6 +4,8 @@ import { Outlet, redirect, useLoaderData, useNavigate } from "react-router-dom"
 import axios from 'axios'
 import { toast } from "react-toastify"
 
+import { Sidebar } from "../components"
+
 const DashboardContext = React.createContext()
 
 export const loader = async() => {
@@ -22,9 +24,9 @@ const Dashboard = () => {
   const navigate = useNavigate()
 
   const logoutUser = async() => {
-    navigate('/')
     await axios.get('/api/v1/auth/logout')
     toast.success('Logging Out..')
+    navigate('/')
   }
 
   const deleteTodo = async(id) => {
@@ -59,7 +61,8 @@ const Dashboard = () => {
       deleteTodo,
       updateTodoStatus
     }}>
-      <div className="w-full h-full relative">
+      <div className="w-full h-full max-h-full flex relative">
+          <Sidebar />
           <Outlet context={{jobData, user: user.user}} />
       </div>
     </DashboardContext.Provider>
