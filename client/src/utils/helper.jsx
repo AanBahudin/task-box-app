@@ -1,4 +1,5 @@
 import { BsClipboard2Fill, BsClipboard2CheckFill, BsClipboard2PulseFill, BsClipboard2XFill } from 'react-icons/bs'
+import { GoAlertFill } from 'react-icons/go'
 
 import notification from '../assets/images/bell.png'
 import organize from '../assets/images/gear.png'
@@ -92,5 +93,23 @@ export const recentlyAddedTasksExample = [
     {
         title: 'Meeting With Marketing Team',
         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consectetu'
+    },
+]
+
+export const priorityTasksExample = [
+    {
+        title: 'LOW PRIORITY TASKS',
+        total: 23,
+        logo: <GoAlertFill />
+    },
+    {
+        title: 'MID PRIORITY TASKS',
+        total: 23,
+        logo: <GoAlertFill />
+    },
+    {
+        title: 'HIGH PRIORITY TASKS',
+        total: 23,
+        logo: <GoAlertFill />
     },
 ]

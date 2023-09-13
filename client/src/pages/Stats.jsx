@@ -2,7 +2,7 @@ import { BsExclamationTriangleFill, BsFillAlarmFill, BsFillInfoSquareFill } from
 import { StatsCardContainer } from '../components'
 
 // Example, will remove when the server is ready
-import { taskManagementOverviewExample, recentlyAddedTasksExample } from "../utils/helper"
+import { taskManagementOverviewExample, priorityTasksExample } from "../utils/helper"
 
 const Stats = () => {
   return (
@@ -17,6 +17,7 @@ const Stats = () => {
         <p className="text-right my-10 text-sm hover:underline hover:font-semibold text-purplePrimary cursor-default duration-200 ease-in-out">Show More ...</p>
       </section>
 
+      {/* RECENTLY ADDED TASKS SECTION */}
       <section>
         <h1 className="text-2xl font-semibold text-purplePrimary flex items-center gap-x-4"> <BsFillAlarmFill />Recently Added Tasks</h1>
         <p className="mt-5 text-sm">Recently Added Tasks to view the latest additions to your to-do list. Stay up-to-date with your most recent commitments and ensure nothing slips through the cracks.</p>
@@ -58,24 +59,7 @@ const Stats = () => {
         <h1 className="text-2xl font-semibold text-purplePrimary flex items-center gap-x-4"> <BsExclamationTriangleFill /> Priority Tasks Overview</h1>
         <p className="mt-5 text-sm">The Priority Task Overview provides a concise summary of your most important and time-sensitive tasks. It offers a quick glance at high-priority items, allowing you to focus on what needs immediate attention and ensuring you stay on top of critical assignments</p>
 
-        <div className="flex justify-between w-[80%] mx-auto gap-x-10 text-bluePrimary mt-10">
-
-          <div className="bg-success rounded-md py-1 px-1 h-[120px] w-mediumCard border-[0.5px] border-black drop-shadow-xl">
-            <h4 className="text-xs mt-1">LESS PRIORITY TASKS</h4>
-            <p className="text-center text-5xl mt-5 font-semibold text-bluePrimary h-full">20</p>
-          </div>
-
-          <div className="bg-warning rounded-md py-1 px-1 h-[120px] w-mediumCard border-[0.5px] border-black drop-shadow-xl">
-            <h4 className="text-xs mt-1">MEDIUM PRIORITY TASKS</h4>
-            <p className="text-center text-5xl mt-5 font-semibold text-bluePrimary h-full">20</p>
-          </div>
-
-          <div className="bg-danger rounded-md py-1 px-1 h-[120px] w-mediumCard border-[0.5px] border-black drop-shadow-xl">
-            <h4 className="text-xs mt-1">HIGH PRIORITY TASKS</h4>
-            <p className="text-center text-5xl mt-5 font-semibold text-bluePrimary h-full">20</p>
-          </div>
-          
-        </div>
+        <StatsCardContainer data={priorityTasksExample} colors={['bg-success', 'bg-warning', 'bg-danger']} />
 
         {/* PRIORITY TASKS TABLE */}
         <div className="mt-10 w-full bg-greyPrimary p-4 rounded-lg min-h-[300px]">
