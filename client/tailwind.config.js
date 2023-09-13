@@ -17,6 +17,12 @@ export default {
       backgroundImage: {
         'hero-pattern': "url('./src/assets/images/backdrop.png')",
         'mission-bg': "url('./src/assets/images/missionbg.png')",
+      },
+      width: {
+        'mediumCard': '220px'
+      },
+      height: {
+        'mediumCard': '120px'
       }
     },
   },
