@@ -1,5 +1,7 @@
 import { BsClipboard2Fill, BsClipboard2CheckFill, BsClipboard2PulseFill, BsClipboard2XFill } from 'react-icons/bs'
 import { GoAlertFill } from 'react-icons/go'
+import { AiFillSignal, AiFillFileAdd, AiFillFile } from 'react-icons/ai'
+import { FaUserAlt } from 'react-icons/fa'
 
 import notification from '../assets/images/bell.png'
 import organize from '../assets/images/gear.png'
@@ -50,6 +52,30 @@ export const missionContent = [
         title: 'Passion for Productivity',
         text: "Our team is dedicated to creating an intuitive and powerful tool that simplifies your life."
     },
+]
+
+export const sidebarLinks = [
+    {
+        path: 'profile',
+        icon: <FaUserAlt />,
+        text: 'Profile'
+    },
+    {
+        path: 'create',
+        icon: <AiFillFileAdd />,
+        text: 'Add Task'
+    },
+    {
+        path: 'tasks',
+        icon: <AiFillFile />,
+        text: 'All Task'
+    },
+    {
+        path: '/dashboard',
+        icon: <AiFillSignal />,
+        text: 'Stats'
+    },
+    
 ]
 
 // will remove when server is ready
