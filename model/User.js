@@ -14,6 +14,9 @@ const TodoSchema = new mongoose.Schema({
     location: {
         type: String
     },
+    age: {
+        type: Number
+    },
     instagramURL: {
         type: String
     },
