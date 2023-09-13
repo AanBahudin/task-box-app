@@ -1,5 +1,5 @@
 import { BsExclamationTriangleFill, BsFillAlarmFill, BsFillInfoSquareFill } from 'react-icons/bs'
-import { StatsCardContainer } from '../components'
+import { StatsCardContainer, RecentlyAddedCard } from '../components'
 
 // Example, will remove when the server is ready
 import { taskManagementOverviewExample, priorityTasksExample } from "../utils/helper"
@@ -23,33 +23,7 @@ const Stats = () => {
         <p className="mt-5 text-sm">Recently Added Tasks to view the latest additions to your to-do list. Stay up-to-date with your most recent commitments and ensure nothing slips through the cracks.</p>
 
         {/* CARDS */}
-        <div className="grid grid-cols-4 gap-x-7 mt-10">
-
-          <div className="bg-greyPrimary p-4 rounded-md border-[0.5px] border-black hover:drop-shadow-xl cursor-default">
-            <h5 className="truncate text-sm font-semibold">Meeting With Marketing ...</h5>
-            <p className="text-xs my-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consectetu</p>
-            <p className="text-center text-purplePrimary text-xs hover:underline hover:font-semibold cursor-default">Show Detail</p>
-          </div>
-
-          <div className="bg-greyPrimary p-4 rounded-md border-[0.5px] border-black hover:drop-shadow-xl cursor-default">
-            <h5 className="truncate text-sm font-semibold">Meeting With Marketing ...</h5>
-            <p className="text-xs my-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consectetu</p>
-            <p className="text-center text-purplePrimary text-xs hover:underline hover:font-semibold cursor-default">Show Detail</p>
-          </div>
-
-          <div className="bg-greyPrimary p-4 rounded-md border-[0.5px] border-black hover:drop-shadow-xl cursor-default">
-            <h5 className="truncate text-sm font-semibold">Meeting With Marketing ...</h5>
-            <p className="text-xs my-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consectetu</p>
-            <p className="text-center text-purplePrimary text-xs hover:underline hover:font-semibold cursor-default">Show Detail</p>
-          </div>
-
-          <div className="bg-greyPrimary p-4 rounded-md border-[0.5px] border-black hover:drop-shadow-xl cursor-default">
-            <h5 className="truncate text-sm font-semibold">Meeting With Marketing ...</h5>
-            <p className="text-xs my-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consectetu</p>
-            <p className="text-center text-purplePrimary text-xs hover:underline hover:font-semibold cursor-default">Show Detail</p>
-          </div>
-
-        </div>
+       <RecentlyAddedCard />
 
         <p className="text-right my-10 text-sm hover:underline hover:font-semibold text-purplePrimary cursor-default duration-200 ease-in-out">Show All ...</p>
       </section>
