@@ -1,4 +1,8 @@
-import { BsClipboard2Fill, BsClipboard2CheckFill, BsClipboard2PulseFill, BsClipboard2XFill, BsExclamationTriangleFill, BsFillAlarmFill, BsFillInfoSquareFill } from 'react-icons/bs'
+import { BsExclamationTriangleFill, BsFillAlarmFill, BsFillInfoSquareFill } from 'react-icons/bs'
+import { StatsCardContainer } from '../components'
+
+// Example, will remove when the server is ready
+import { taskManagementOverviewExample, recentlyAddedTasksExample } from "../utils/helper"
 
 const Stats = () => {
   return (
@@ -8,28 +12,7 @@ const Stats = () => {
         <p className="mt-5 text-sm">Tasks Management Overview provides a comprehensive view of your task-related activities, helping you efficiently organize, track, and prioritize your tasks. Gain insights into your task management process and stay in control of your workload.</p>
 
         {/* CARD SECTION */}
-        <div className="grid grid-cols-4 gap-x-10 text-bluePrimary mt-10">
-
-          <div className="bg-greyPrimary rounded-md py-1 px-1 h-mediumCard w-mediumCard min-h-[120px] max-h-[120px] border-[0.5px] border-black drop-shadow-xl cursor-default hover">
-            <h4 className="text-xs mt-1 flex gap-x-2 ml-3"><span className='my-auto'><BsClipboard2Fill /></span>  TOTAL TASK CREATED</h4>
-            <p className="text-center text-5xl mt-5 font-semibold text-bluePrimary h-full">20</p>
-          </div>
-
-          <div className="bg-success rounded-md py-1 px-1 h-mediumCard w-mediumCard border-[0.5px] border-black drop-shadow-xl">
-            <h4 className="text-xs mt-1 flex gap-x-2 ml-3"><span className='my-auto'><BsClipboard2CheckFill /></span>  COMPLETED TASKS</h4>
-            <p className="text-center text-5xl mt-5 font-semibold text-bluePrimary h-full">20</p>
-          </div>
-
-          <div className="bg-warning rounded-md py-1 px-1 h-mediumCard w-mediumCard border-[0.5px] border-black drop-shadow-xl">
-            <h4 className="text-xs mt-1 flex gap-x-2 ml-3"><span className='my-auto'><BsClipboard2PulseFill /></span>  TASKS IN PROGRESS</h4>
-            <p className="text-center text-5xl mt-5 font-semibold text-bluePrimary h-full">20</p>
-          </div>
-
-          <div className="bg-danger rounded-md py-1 px-1 h-mediumCard w-mediumCard border-[0.5px] border-black drop-shadow-xl">
-            <h4 className="text-xs mt-1 flex gap-x-2 ml-3"><span className='my-auto'><BsClipboard2XFill /></span>  TASKS ON HOLD</h4>
-            <p className="text-center text-5xl mt-5 font-semibold text-bluePrimary h-full">20</p>
-          </div>
-        </div>
+       <StatsCardContainer data={taskManagementOverviewExample} colors={['bg-greyPrimary', 'bg-success', 'bg-warning', 'bg-danger']} />
 
         <p className="text-right my-10 text-sm hover:underline hover:font-semibold text-purplePrimary cursor-default duration-200 ease-in-out">Show More ...</p>
       </section>

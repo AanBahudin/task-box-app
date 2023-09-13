@@ -51,6 +51,8 @@ export const missionContent = [
     },
 ]
 
+// will remove when server is ready
+
 export const taskManagementOverviewExample = [
     {
         title: 'TOTAL TASK CREATED',
@@ -71,5 +73,24 @@ export const taskManagementOverviewExample = [
         title: 'TASKS ON HOLD',
         total: 23,
         logo: <BsClipboard2XFill />
+    },
+]
+
+export const recentlyAddedTasksExample = [
+    {
+        title: 'Meeting With Marketing Team',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consectetu'
+    },
+    {
+        title: 'Meeting With Marketing Team',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consectetu'
+    },
+    {
+        title: 'Meeting With Marketing Team',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consectetu'
+    },
+    {
+        title: 'Meeting With Marketing Team',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consectetu'
     },
 ]
