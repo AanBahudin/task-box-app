@@ -1,4 +1,5 @@
 import { AiFillSignal, AiFillFileAdd, AiFillFile } from 'react-icons/ai'
+import { FaUserAlt } from 'react-icons/fa'
 import { NavLink } from 'react-router-dom'
 
 import { useDashboardContext } from '../pages/Dashboard'
@@ -12,7 +13,19 @@ const Sidebar = () => {
             <div className="w-16 h-16 rounded-full bg-white"></div>
             
             {/* button container */}
-            <div className="flex justify-between flex-col h-[40%] self-stretch items-center">
+            <div className="flex justify-center flex-col h-[40%] items-stretch gap-y-5">
+                <NavLink to='profile' end>
+                    {({isActive}) => (
+                        <>
+                            <FaUserAlt
+                                className={`w-10 h-10 ${isActive ? 'bg-[#9B59B6] w-12 h-12' : 'bg-[#ffffff]'} duration-300 ease-in-out p-1 rounded-md`} 
+                                fill={isActive ? '#ffffff' : '#3C6077'} 
+                                />
+                            <p className={`text-xs mt-1 text-center text-bluePrimary ${isActive ? 'visible' : 'invisible'}`}>Profile</p>
+                        </>
+                    )}
+                </NavLink>
+
                 <NavLink to='create' end>
                     {({isActive}) => (
                         <>
