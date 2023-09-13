@@ -17,10 +17,7 @@ const Sidebar = () => {
                 <NavLink to='profile' end>
                     {({isActive}) => (
                         <>
-                            <FaUserAlt
-                                className={`w-10 h-10 ${isActive ? 'bg-[#9B59B6] w-12 h-12' : 'bg-[#ffffff]'} duration-300 ease-in-out p-1 rounded-md`} 
-                                fill={isActive ? '#ffffff' : '#3C6077'} 
-                                />
+                            <FaUserAlt className={`w-10 h-10 ${isActive ? 'bg-[#9B59B6] w-12 h-12' : 'bg-[#ffffff]'} ${isActive ? 'fill-white' : 'fill-bluePrimary'} duration-300 ease-in-out p-1 rounded-md`} />
                             <p className={`text-xs mt-1 text-center text-bluePrimary ${isActive ? 'visible' : 'invisible'}`}>Profile</p>
                         </>
                     )}
@@ -30,8 +27,7 @@ const Sidebar = () => {
                     {({isActive}) => (
                         <>
                             <AiFillFileAdd
-                                className={`w-10 h-10 ${isActive ? 'bg-[#9B59B6] w-12 h-12' : 'bg-[#ffffff]'} duration-300 ease-in-out p-1 rounded-md`} 
-                                fill={isActive ? '#ffffff' : '#3C6077'} 
+                                className={`w-10 h-10 ${isActive ? 'bg-[#9B59B6] w-12 h-12' : 'bg-[#ffffff]'} ${isActive ? 'fill-white' : 'fill-bluePrimary'}  duration-300 ease-in-out p-1 rounded-md`} 
                                 />
                             <p className={`text-xs mt-1 text-center text-bluePrimary ${isActive ? 'visible' : 'invisible'}`}>Create</p>
                         </>
@@ -41,8 +37,8 @@ const Sidebar = () => {
                     {({isActive}) => (
                          <>
                             <AiFillFile
-                                className={`w-10 h-10 ${isActive ? 'bg-[#9B59B6] w-12 h-12' : 'bg-[#ffffff]'} duration-300 ease-in-out p-1 rounded-md`} 
-                                fill={isActive ? '#ffffff' : '#3C6077'} 
+                                className={`w-10 h-10 ${isActive ? 'bg-[#9B59B6] w-12 h-12' : 'bg-[#ffffff]'} ${isActive ? 'fill-white' : 'fill-bluePrimary'}  duration-300 ease-in-out p-1 rounded-md`} 
+
                                 />
                             <p className={`text-xs mt-1 text-center text-bluePrimary ${isActive ? 'visible' : 'invisible'}`}>All Tasks</p>
                         </>
@@ -52,8 +48,8 @@ const Sidebar = () => {
                     {({isActive}) => (
                          <>
                             <AiFillSignal
-                                className={`w-10 h-10 ${isActive ? 'bg-[#9B59B6] w-12 h-12' : 'bg-[#ffffff]'} duration-300 ease-in-out p-1 rounded-md`} 
-                                fill={isActive ? '#ffffff' : '#3C6077'} 
+                                className={`w-10 h-10 ${isActive ? 'bg-[#9B59B6] w-12 h-12' : 'bg-[#ffffff]'} ${isActive ? 'fill-white' : 'fill-bluePrimary'}  duration-300 ease-in-out p-1 rounded-md`} 
+
                                 />
                             <p className={`text-xs mt-1 text-center text-bluePrimary ${isActive ? 'visible' : 'invisible'}`}>Stats</p>
                         </>
