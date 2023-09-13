@@ -8,10 +8,11 @@ export default {
     extend: {
       colors: {
         "bluePrimary": '#3C6077',
-        'primary': '#030C0E',
-        'secondary': '#1C2E34',
-        'secondaryDarker': '#132024',
-        'goldenWhite': '#BDBEBC'
+        "purplePrimary": "#9B59B6",
+        "greyPrimary": "#F3F4F8",
+        "success": "#7FFA92",
+        "warning": "#FFEF77",
+        "danger": "#F76767"
       },
       backgroundImage: {
         'hero-pattern': "url('./src/assets/images/backdrop.png')",
