@@ -26,15 +26,15 @@ export const action = async({request}) => {
 
 const Profile = () => {
 
-  // const {user} = useOutletContext()
+  const {user} = useOutletContext()
   const isSubmitting = useNavigation().state === 'submitting'
   
   return (
     <div className='p-20 w-full max-h-[100vh] flex justify-center items-center gap-x-10'>
 
-      <ProfileCard />
+      <ProfileCard user={user} />
       <UpdateProfileCard isSubmitting={isSubmitting} />
-      
+
     </div>
   )
 }
