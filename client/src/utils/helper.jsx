@@ -74,9 +74,11 @@ export const sidebarLinks = [
         path: '/dashboard',
         icon: <AiFillSignal />,
         text: 'Stats'
-    },
-    
+    },   
 ]
+
+export const taskCategory = ['Office', 'Home', 'Work', 'School']
+export const taskPriority = ['Low', 'Mid', 'High']
 
 // will remove when server is ready
 

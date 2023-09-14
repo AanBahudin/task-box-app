@@ -2,12 +2,14 @@
 
 import { Form, redirect } from "react-router-dom"
 import { FormInput, TextInput, FormSelect } from "../components"
+import { taskCategory, taskPriority } from "../utils/helper"
 
 export const addTaskAction = async({request}) => {
   try {
     const formData = await request.formData()
     const data = Object.fromEntries(formData)
     console.log(data);
+    return redirect('.')
   } catch (error) {
     return redirect('.')
   }
@@ -24,8 +26,8 @@ const AddTask = () => {
           <TextInput labelFor='description' labelText='Description' defaultValue='' name='description' />
 
           <div className="w-full grid grid-cols-2 gap-x-10 mt-5">
-            <FormSelect labelFor='category' name='category' defaultValue='Office' labelText='Task Category' />
-            <FormSelect labelFor='priority' name='priority' defaultValue='Office' labelText='Task Priority' />
+            <FormSelect labelFor='category' name='category' defaultValue='Office' data={taskCategory} labelText='Task Category' />
+            <FormSelect labelFor='priority' name='priority' defaultValue='Low' data={taskPriority} labelText='Task Priority' />
           </div>
 
           <div className="w-1/2 ml-auto grid grid-cols-2 gap-x-3 mt-5">
