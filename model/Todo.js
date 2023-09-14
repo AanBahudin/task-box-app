@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
 
 const TodoSchema = new mongoose.Schema({
-    todo: {
+    task: {
         type: String,
         required: [true, "Please provide todo"]
     },
-    todoDetail: {
+    description: {
         type: String,
         maxLength: 2000
     },
@@ -16,8 +16,12 @@ const TodoSchema = new mongoose.Schema({
     },
     priority: {
         type: String,
-        enum: ['Low', 'Medium', 'High'],
+        enum: ['Low', 'Mid', 'High'],
         default: 'Low'
+    },
+    category: {
+        type: String,
+        default: 'Office'
     },
     createdBy: {
         type: mongoose.Types.ObjectId,
