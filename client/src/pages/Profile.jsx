@@ -33,7 +33,7 @@ const Profile = () => {
     <div className='p-20 w-full max-h-[100vh] flex justify-center items-center gap-x-10'>
 
       <ProfileCard user={user} />
-      <UpdateProfileCard isSubmitting={isSubmitting} />
+      <UpdateProfileCard user={user} isSubmitting={isSubmitting} />
 
     </div>
   )
