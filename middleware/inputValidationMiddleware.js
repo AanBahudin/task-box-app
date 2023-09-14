@@ -61,12 +61,25 @@ export const validateLoginInput = withValidationErrors([
 ])
 
 export const validateTodoInput = withValidationErrors([
-    body('todo')
+    body('task')
         .notEmpty()
         .withMessage('task name is required')
         .isLength({min: 3})
         .withMessage('task is to short')
         .escape(),
+    body('description')
+        .notEmpty()
+        .withMessage('task required description')
+        .trim()
+        .isLength({min: 5})
+        .withMessage('description is to short')
+        .escape(),
+    body('priority')
+        .notEmpty()
+        .withMessage('task priority is required')
+        .isIn(['Low', 'Mid', 'High'])
+        .withMessage('Invalid task priority')
+        .escape()
 ])
 
 
