@@ -5,8 +5,6 @@ import moment from 'moment'
 
 const ProfileCard = ({user}) => {
 
-    console.log(user);
-
   return (
      <section className='min-h-[60vh] bg-greyPrimary drop-shadow-xl rounded-md p-5 w-[25%]'>
         <div className='w-20 h-20 bg-white rounded-full mx-auto'></div>
