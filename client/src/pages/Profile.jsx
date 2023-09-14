@@ -1,10 +1,9 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-refresh/only-export-components */
 
-import { Form,useOutletContext, redirect, useNavigation } from 'react-router-dom'
-
+import { Form, useOutletContext, redirect, useNavigation } from 'react-router-dom'
+import { FormInput } from '../components'
 import axios from 'axios'
-
 import { toast } from 'react-toastify'
 
 export const action = async({request}) => {
@@ -29,8 +28,7 @@ export const action = async({request}) => {
 const Profile = () => {
 
   // const {user} = useOutletContext()
-  // const navigation = useNavigation()
-  // const isSubmitting = navigation.state === 'submitting'
+  const isSubmitting = useNavigation().state === 'submitting'
   
   return (
     <div className='p-20 w-full max-h-[100vh] flex justify-center items-center gap-x-10'>
@@ -58,8 +56,21 @@ const Profile = () => {
         </article>
       </section>
 
-      <section className='min-h-[60vh] bg-greyPrimary drop-shadow-xl rounded-md p-5 w-[70%]'>
+      <section className='min-h-[60vh] max-h-[60vh] bg-greyPrimary drop-shadow-xl rounded-md p-8 w-[70%]'>
+        <h4 className='text-xl font-semibold text-purplePrimary'>Account Setting</h4>
 
+        <Form method='POST'>
+          <div className='w-full grid grid-cols-2 gap-5 mt-5'>
+            <FormInput labelText='First Name' labelFor='name' name='name' type='text' defaultValue='Aan' />
+            <FormInput labelText='Last Name' labelFor='lastName' name='lastName' type='text' defaultValue='Bahudin' />
+            <FormInput labelText='Email' labelFor='email' name='email' type='email' defaultValue='aanbahudin@gmail.com' />
+            <FormInput labelText='Location' labelFor='location' name='location' type='text' defaultValue='Indonesia' />
+            <FormInput labelText='Instagram url' labelFor='instagramURL' name='instagramURL' type='text' defaultValue=''/>
+            <FormInput labelText='Twitter url' labelFor='twitterURL' name='twitterURL' type='text' defaultValue=''/>
+          </div>
+
+            <button disabled={isSubmitting} type='submit' className='cursor-default w-full disabled:cursor-not-allowed hover:bg-[#854c9c] bg-[#9B59B6] text-white text-center py-2 px-6 rounded-md my-5'>Update Profile</button>
+        </Form>
       </section>
     </div>
   )
