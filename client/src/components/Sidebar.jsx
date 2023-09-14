@@ -1,7 +1,6 @@
 import { AiFillSignal, AiFillFileAdd, AiFillFile } from 'react-icons/ai'
 import { FaUserAlt } from 'react-icons/fa'
 import { NavLink } from 'react-router-dom'
-
 import { useDashboardContext } from '../pages/Dashboard'
 
 const Sidebar = () => {

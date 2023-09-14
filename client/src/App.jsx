@@ -8,6 +8,7 @@ import { loader as homeLayoutLoader } from './pages/HomeLayout'
 import { action as loginAction } from './pages/Login'
 import {action as profileAction} from './pages/Profile'
 import { action as registerAction } from './pages/Register'
+import { addTaskAction } from './pages/AddTask'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -57,7 +58,8 @@ const router = createBrowserRouter([
       },
       {
         path: 'create',
-        element: <AddTask />
+        element: <AddTask />,
+        action: addTaskAction
       },
       {
         path: 'tasks',
