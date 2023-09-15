@@ -19,7 +19,7 @@ const AllTasks = () => {
       <div className="w-full flex gap-x-10 justify-center items-center mt-10">
 
         {/* task menu section */}
-        <article className="w-[70%] bg-greyPrimary p-5 rounded-md">
+        <article className="w-[70%] p-5 rounded-md">
           <div className='grid bg-red-100 grid-cols-3 items-s'>
             <h2 className={`bg-greyPrimary self-auto text-bluePrimary py-1 px-4 text-center rounded-sm ${linkActive === 'All' && 'bg-purplePrimary text-white'} duration-200 ease-in-out`} onClick={() => handleLink('All')}>All</h2>
             <h2 className={`bg-greyPrimary text-bluePrimary py-1 px-4 text-center rounded-sm ${linkActive === 'Priority' && 'bg-purplePrimary text-white'} duration-200 ease-in-out`} onClick={() => handleLink('Priority')}>Priority</h2>
@@ -31,12 +31,12 @@ const AllTasks = () => {
             {todoData.todo.map((item, index) => {
               const { task, description, status, priority } = item
               return (
-                <div key={index + 1} className="w-full flex justify-between text-sm p-2 bg-white rounded-md">
+                <div key={index + 1} className="w-full flex odd:bg-greyPrimary justify-between text-sm p-2 bg-white rounded-md">
                   <p className="my-auto w-fit">{index + 1}</p>
                   <p className="my-auto font-semibold w-[20%] truncate">{task}</p>
                   <p className="my-auto w-[20%] truncate">{description}</p>
                   <p className={`p-1 text-center w-[20%] rounded ${status === 'completed' && 'bg-success' || status === 'on Progress' && 'bg-warning' || 'bg-greyPrimary'}`}>{status}</p>
-                  <p className="p-1 bg-danger text-center w-[15%] rounded">{priority}</p>
+                  <p className={`p-1 text-center w-[15%] text-white rounded ${priority === 'Low' && 'bg-success' || priority === 'Mid' && 'bg-warning' || 'bg-danger text-white'}`}>{priority}</p>
                 </div>
               )
             })}
