@@ -54,13 +54,3 @@ const AllTasks = () => {
 }
 
 export default AllTasks
-
-{/* <section className="flex-col flex justify-center items-center w-full gap-y-10">
-      <div className='flex w-full items-center justify-around'>
-        <h2 onClick={() => handleLink('All')}>All</h2>
-        <h2 onClick={() => handleLink('Priority')}>Priority</h2>
-        <h2 onClick={() => handleLink('Status')}>Status</h2>
-
-      </div>
-        {linkActive === 'All' && 'All task' || linkActive === 'Priority' && 'Priority Task' || 'Status Tasks'}
-</section> */}

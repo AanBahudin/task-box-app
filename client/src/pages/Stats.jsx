@@ -1,10 +1,17 @@
+/* eslint-disable no-unused-vars */
+
 import { BsExclamationTriangleFill, BsFillAlarmFill, BsFillInfoSquareFill } from 'react-icons/bs'
 import { StatsCardContainer, RecentlyAddedCard } from '../components'
+import { useDashboardContext } from './Dashboard'
 
 // Example, will remove when the server is ready
 import { taskManagementOverviewExample, priorityTasksExample } from "../utils/helper"
 
 const Stats = () => {
+
+  // will remove when aggregation ready
+  const {todoData} = useDashboardContext()
+
   return (
     <div className="p-20 w-full max-h-[100vh] scroll-smooth overflow-y-auto text-bluePrimary duration-200 ease-in-out cursor-default">
       <section>
@@ -12,7 +19,7 @@ const Stats = () => {
         <p className="mt-5 text-sm">Tasks Management Overview provides a comprehensive view of your task-related activities, helping you efficiently organize, track, and prioritize your tasks. Gain insights into your task management process and stay in control of your workload.</p>
 
         {/* CARD SECTION */}
-       <StatsCardContainer data={taskManagementOverviewExample} colors={['bg-greyPrimary', 'bg-success', 'bg-warning', 'bg-danger']} />
+       <StatsCardContainer data={taskManagementOverviewExample} colors={['bg-greyPrimary', 'bg-success', 'bg-warning', 'bg-danger']}  />
 
         <p className="text-right my-10 text-sm hover:underline hover:font-semibold text-purplePrimary cursor-default duration-200 ease-in-out">Show More ...</p>
       </section>
