@@ -1,13 +1,11 @@
 import { useState } from "react"
 import { useOutletContext } from "react-router-dom"
-import axios from "axios"
 import { useDashboardContext } from "./Dashboard"
 const AllTasks = () => {
 
   const [linkActive, setLinkActive] = useState('All')
   const { user } = useOutletContext()
   const { todoData } = useDashboardContext()
-  console.log(todoData);
 
   const handleLink = (active) => {
     setLinkActive(active)
@@ -37,7 +35,7 @@ const AllTasks = () => {
                   <p className="my-auto w-fit">{index + 1}</p>
                   <p className="my-auto font-semibold w-[20%] truncate">{task}</p>
                   <p className="my-auto w-[20%] truncate">{description}</p>
-                  <p className="p-1 bg-success text-center w-[20%] rounded">{status}</p>
+                  <p className={`p-1 text-center w-[20%] rounded ${status === 'completed' && 'bg-success' || status === 'on Progress' && 'bg-warning' || 'bg-greyPrimary'}`}>{status}</p>
                   <p className="p-1 bg-danger text-center w-[15%] rounded">{priority}</p>
                 </div>
               )
