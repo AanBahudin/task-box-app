@@ -15,7 +15,7 @@ const AllTasks = () => {
   }
 
   return (
-    <section className="p-20 w-full scroll-smooth overflow-y-auto text-bluePrimary duration-200 ease-in-out cursor-default">
+    <section className="p-20 w-full max-h-[100vh] scroll-smooth overflow-y-auto text-bluePrimary duration-200 ease-in-out cursor-default">
       <h4 className="text-2xl font-semibold">Hello {user.name}👋</h4>
       <p className="mt-5 text-sm">Manage your workload efficiently with the All Tasks feature!</p>
 
