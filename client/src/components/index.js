@@ -6,7 +6,7 @@ import RecentlyAddedCard from "./RecentlyAddedCard";
 import Sidebar from "./Sidebar";
 import StatsCard from "./StatsCard";
 import StatsCardContainer from "./StatsCardContainer";
-import TextInput from "../pages/TextInput";
+import TextInput from "./TextInput";
 import UpdateProfileCard from "./Profile/UpdateProfileCard";
 
 export {

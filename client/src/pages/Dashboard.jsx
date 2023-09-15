@@ -11,8 +11,8 @@ const DashboardContext = React.createContext()
 export const loader = async() => {
     try {
         const userData = await axios.get('/api/v1/user/current-user')
-        const jobData = await axios.get('/api/v1/todo')
-        return {user: userData.data, jobData: jobData.data}
+        const todoData = await axios.get('/api/v1/todo')
+        return {user: userData.data, todoData: todoData.data}
     } catch (error) {
         return redirect('/')
     }
@@ -20,7 +20,7 @@ export const loader = async() => {
 
 const Dashboard = () => {
 
-  const {user, jobData} = useLoaderData()
+  const {user, todoData} = useLoaderData()
   const navigate = useNavigate()
 
   const logoutUser = async() => {
@@ -56,14 +56,14 @@ const Dashboard = () => {
   return (
     <DashboardContext.Provider value={{
       user,
-      jobData,
+      todoData,
       logoutUser,
       deleteTodo,
       updateTodoStatus
     }}>
       <div className="w-full h-full max-h-full flex relative">
           <Sidebar />
-          <Outlet context={{jobData, user: user.user}} />
+          <Outlet context={{todoData, user: user.user}} />
       </div>
     </DashboardContext.Provider>
   )
