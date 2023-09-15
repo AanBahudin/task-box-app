@@ -32,7 +32,7 @@ const AllTasks = () => {
 
           <div className="w-full mt-10 flex min-h-[50vh] max-h-[50vh] overflow-y-auto flex-col gap-y-1">
 
-          {todoData.todo.length < 1 ? <h1 className="m-auto text-xl">Let's create your tasks <Link to='/dashboard/create' className="font-semibold underline cursor-default" >here</Link></h1> : (
+          {todoData.todo.length < 1 ? <h1 className="m-auto text-xl">Let&apos;s create your tasks <Link to='/dashboard/create' className="font-semibold underline cursor-default" >here</Link></h1> : (
               todoData.todo.map((item, index) => {
                 const { task, description, status, priority } = item
                 return (
