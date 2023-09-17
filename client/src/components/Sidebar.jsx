@@ -1,15 +1,17 @@
+/* eslint-disable react/prop-types */
 import { AiFillSignal, AiFillFileAdd, AiFillFile } from 'react-icons/ai'
 import { FaUserAlt } from 'react-icons/fa'
 import { NavLink } from 'react-router-dom'
 import { useDashboardContext } from '../pages/Dashboard'
 
-const Sidebar = () => {
+const Sidebar = ({user = ['default']}) => {
 
-    const {logoutUser} = useDashboardContext()
+    const { logoutUser } = useDashboardContext()
+    console.log(user.avatar);
 
     return (
         <div className="h-[100vh] bg-[#F3F4F8] flex flex-col justify-around items-center p-5">
-            <div className="w-16 h-16 rounded-full bg-white"></div>
+            <img className="w-16 h-16 rounded-full bg-white" src={user?.avatar} alt="photo profile" />
             
             {/* button container */}
             <div className="flex justify-center flex-col h-[40%] items-stretch gap-y-5">

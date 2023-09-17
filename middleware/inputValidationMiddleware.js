@@ -102,16 +102,16 @@ export const validateParamTodo = withValidationErrors([
 ])
 
 export const updateUserValidation = withValidationErrors([
-    body('instagramURL')
-        .isLength({min: 15})
-        .withMessage('Url is to short')
-        .contains('https://www.instagram.com/')
-        .withMessage('Instagram URL is invalid'),
-    body('twitterURL')
-        .isLength({min: 15})
-        .withMessage('Url is to short')
-        .contains('https://twitter.com/')
-        .withMessage('Twitter URL is invalid'),
+    // body('instagramURL')
+    //     .isLength({min: 15})
+    //     .withMessage('Url is to short')
+    //     .contains('https://www.instagram.com/')
+    //     .withMessage('Instagram URL is invalid'),
+    // body('twitterURL')
+    //     .isLength({min: 15})
+    //     .withMessage('Url is to short')
+    //     .contains('https://twitter.com/')
+    //     .withMessage('Twitter URL is invalid'),
     body('email')
         .notEmpty()
         .withMessage('email is required')

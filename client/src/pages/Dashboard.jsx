@@ -62,7 +62,7 @@ const Dashboard = () => {
       updateTodoStatus
     }}>
       <div className="w-full h-full max-h-full flex relative">
-          <Sidebar />
+          <Sidebar user={user}/>
           <Outlet context={{todoData, user: user.user}} />
       </div>
     </DashboardContext.Provider>

@@ -1,5 +1,6 @@
 import { BadRequestError } from "../errors/custom-errors.js"
 import Todo from "../model/Todo.js"
+import mongoose from "mongoose"
 import { StatusCodes } from "http-status-codes"
 
 export const createTodo = async (req, res) => {
@@ -16,7 +17,23 @@ export const createTodo = async (req, res) => {
 export const getAllTodos = async (req, res) => {
     const todo = await Todo.find({createdBy: req.user.userId}).sort({createdAt: -1})
 
-    res.status(StatusCodes.OK).json({todo, total: todo.length})
+    const aggregateTasks = await Todo.aggregate([
+    { 
+        $match: { createdBy: new mongoose.Types.ObjectId(req.user.userId) } 
+    },
+    {
+        $facet: {
+        completedTasks: [
+            { $group: { _id: '$status', count: { $sum: 1 } } }
+        ],
+        priorityTasks: [
+            { $group: { _id: '$priority', count: { $sum: 1 } } }
+        ]
+        }
+    }
+    ]);
+
+    res.status(StatusCodes.OK).json({todo, total: todo.length, aggregateTasks})
 }
 
 export const getSingleTodo = async (req, res) => {
