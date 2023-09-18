@@ -60,3 +60,7 @@ export const deleteTodo = async (req, res) => {
 
     res.status(StatusCodes.OK).json({msg: 'successfully deleted'})
 }
+
+export const aggreageTest = async (req, res) => {
+    res.send('aggreageTest')
+}
