@@ -33,7 +33,14 @@ export const getAllTodos = async (req, res) => {
     }
     ]);
 
-    res.status(StatusCodes.OK).json({todo, total: todo.length, aggregateTasks})
+    console.log(aggregateTasks)
+
+    return res.status(StatusCodes.OK).json({
+        todo, 
+        total: todo.length, 
+        completedTasks: aggregateTasks[0].completedTasks,
+        priorityTasks: aggregateTasks[0].priorityTasks,
+    })
 }
 
 export const getSingleTodo = async (req, res) => {
