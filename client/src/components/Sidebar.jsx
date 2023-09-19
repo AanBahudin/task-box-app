@@ -7,7 +7,6 @@ import { useDashboardContext } from '../pages/Dashboard'
 const Sidebar = ({user = ['default']}) => {
 
     const { logoutUser } = useDashboardContext()
-    console.log(user.avatar);
 
     return (
         <div className="h-[100vh] bg-[#F3F4F8] flex flex-col justify-around items-center p-5">

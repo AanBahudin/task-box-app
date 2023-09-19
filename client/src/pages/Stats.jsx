@@ -19,7 +19,7 @@ const Stats = () => {
         <p className="mt-5 text-sm">Tasks Management Overview provides a comprehensive view of your task-related activities, helping you efficiently organize, track, and prioritize your tasks. Gain insights into your task management process and stay in control of your workload.</p>
 
         {/* CARD SECTION */}
-       <StatsCardContainer data={todoData.completedTasks} text='tasks' totalData={todoData.total} colors={['bg-greyPrimary', 'bg-success', 'bg-warning', 'bg-danger']}  />
+       <StatsCardContainer data={todoData.completedTask} totalData={todoData.total} colors={['bg-greyPrimary', 'bg-success', 'bg-warning', 'bg-danger']}  />
 
         <p className="text-right my-10 text-sm hover:underline hover:font-semibold text-purplePrimary cursor-default duration-200 ease-in-out">Show More ...</p>
       </section>
@@ -40,7 +40,7 @@ const Stats = () => {
         <h1 className="text-2xl font-semibold text-purplePrimary flex items-center gap-x-4"> <BsExclamationTriangleFill /> Priority Tasks Overview</h1>
         <p className="mt-5 text-sm">The Priority Task Overview provides a concise summary of your most important and time-sensitive tasks. It offers a quick glance at high-priority items, allowing you to focus on what needs immediate attention and ensuring you stay on top of critical assignments</p>
 
-        <StatsCardContainer data={todoData.priorityTasks} text="priority tasks" colors={['bg-success', 'bg-warning', 'bg-danger']} />
+        {/* <StatsCardContainer data={todoData.priorityTask} colors={['bg-success', 'bg-warning', 'bg-danger']} /> */}
 
         {/* PRIORITY TASKS TABLE */}
         <div className="mt-10 w-full bg-greyPrimary p-4 rounded-lg min-h-[300px]">
