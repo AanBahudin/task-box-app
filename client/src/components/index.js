@@ -2,6 +2,7 @@ import FormInput from "./FormInput";
 import FormSelect from "./FormSelect";
 import NavLinks from "./NavLinks";
 import PriorityCards from "./PriorityCards";
+import PriorityTasks from "./PriorityTasks";
 import ProfileCard from "./Profile/ProfileCard";
 import RecentlyAdded from "./RecentlyAdded";
 import RecentlyAddedCard from "./RecentlyAddedCard";
@@ -17,6 +18,7 @@ export {
     FormSelect,
     NavLinks,
     PriorityCards,
+    PriorityTasks,
     ProfileCard,
     RecentlyAdded,
     RecentlyAddedCard,
