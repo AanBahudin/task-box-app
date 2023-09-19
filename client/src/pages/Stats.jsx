@@ -1,13 +1,9 @@
 /* eslint-disable no-unused-vars */
-
-import { BsExclamationTriangleFill, BsFillAlarmFill, BsFillInfoSquareFill } from 'react-icons/bs'
-import { StatsCardContainer, RecentlyAddedCard, PriorityCards } from '../components'
 import { useDashboardContext } from './Dashboard'
 import {TaskOverview, RecentlyAdded, PriorityTasks} from '../components'
 
 const Stats = () => {
 
-  // will remove when aggregation ready
   const {todoData} = useDashboardContext()
 
   return (
