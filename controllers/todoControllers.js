@@ -16,11 +16,8 @@ export const createTodo = async (req, res) => {
 
 export const getAllTodos = async (req, res) => {
     const todo = await Todo.find({createdBy: req.user.userId}).sort({createdAt: -1})
-
     const aggregateTasks = await Todo.aggregate([
-    { 
-        $match: { createdBy: new mongoose.Types.ObjectId(req.user.userId) } 
-    },
+    { $match: { createdBy: new mongoose.Types.ObjectId(req.user.userId) } },
     {
         $facet: {
         completedTasks: [
@@ -33,14 +30,27 @@ export const getAllTodos = async (req, res) => {
     }
     ]);
 
-    console.log(aggregateTasks)
 
-    return res.status(StatusCodes.OK).json({
-        todo, 
-        total: todo.length, 
-        completedTasks: aggregateTasks[0].completedTasks,
-        priorityTasks: aggregateTasks[0].priorityTasks,
-    })
+    let completedTask = (aggregateTasks[0].completedTasks).reduce((acc, curr) => {
+        const { _id: title, count } = curr
+        acc[title] = count
+        return acc
+    }, {})
+
+    let priorityTask = (aggregateTasks[0].priorityTasks).reduce((acc, curr) => {
+        const { _id: title, count } = curr
+        acc[title] = count
+        return acc
+    }, {})
+
+    completedTask = {
+        'total': todo.length,
+        'Completed': completedTask['completed'] || 0,
+        'on Progress': completedTask['on Progress'] || 0,
+        'Pending': completedTask['pending'] || 0,
+    }
+
+    res.status(StatusCodes.OK).json({todos: todo, completedTask, priorityTask, total: todo.length})
 }
 
 export const getSingleTodo = async (req, res) => {
@@ -62,5 +72,42 @@ export const deleteTodo = async (req, res) => {
 }
 
 export const aggreageTest = async (req, res) => {
-    res.send('aggreageTest')
+    const todo = await Todo.find({createdBy: req.user.userId}).sort({createdAt: -1})
+    const aggregateTasks = await Todo.aggregate([
+    { 
+        $match: { createdBy: new mongoose.Types.ObjectId(req.user.userId) } 
+    },
+    {
+        $facet: {
+        completedTasks: [
+            { $group: { _id: '$status', count: { $sum: 1 } } }
+        ],
+        priorityTasks: [
+            { $group: { _id: '$priority', count: { $sum: 1 } } }
+        ]
+        }
+    }
+    ]);
+
+
+    let completedTask = (aggregateTasks[0].completedTasks).reduce((acc, curr) => {
+        const { _id: title, count } = curr
+        acc[title] = count
+        return acc
+    }, {})
+
+    let priorityTask = (aggregateTasks[0].priorityTasks).reduce((acc, curr) => {
+        const { _id: title, count } = curr
+        acc[title] = count
+        return acc
+    }, {})
+
+    completedTask = {
+        'total': todo.length,
+        'Completed': completedTask['completed'] || 0,
+        'on Progress': completedTask['on Progress'] || 0,
+        'Pending': completedTask['pending'] || 0,
+    }
+
+    res.status(StatusCodes.OK).json({todos: todo, completedTask, priorityTask, total: todo.length})
 }
