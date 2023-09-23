@@ -1,3 +1,4 @@
+import AllTaskLink from "./AllTaskLink";
 import FormInput from "./FormInput";
 import FormSelect from "./FormSelect";
 import Loading from "./Loading";
@@ -10,11 +11,15 @@ import RecentlyAddedCard from "./RecentlyAddedCard";
 import Sidebar from "./Sidebar";
 import StatsCard from "./StatsCard";
 import StatsCardContainer from "./StatsCardContainer";
+import SuggestedTaskCard from "./SuggestedTaskCard";
+import SuggestedTasksContainer from "./SuggestedTasksContainer";
+import Tasks from "./Tasks";
 import TaskOverview from "./TaskOverview";
 import TextInput from "./TextInput";
 import UpdateProfileCard from "./Profile/UpdateProfileCard";
 
 export {
+    AllTaskLink,
     FormInput,
     FormSelect,
     Loading,
@@ -27,6 +32,9 @@ export {
     Sidebar,
     StatsCard,
     StatsCardContainer,
+    SuggestedTaskCard,
+    SuggestedTasksContainer,
+    Tasks,
     TaskOverview,
     TextInput,
     UpdateProfileCard
