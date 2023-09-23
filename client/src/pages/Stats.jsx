@@ -16,7 +16,7 @@ const Stats = () => {
       
       <TaskOverview data={todoData.completedTask} totalData={todoData.total} />
       <RecentlyAdded />
-      <PriorityTasks data={todoData.priorityTask} />
+      <PriorityTasks data={todoData.priorityTask} todoData={todoData} />
 
       
     </div>

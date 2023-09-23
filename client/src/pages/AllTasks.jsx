@@ -21,7 +21,7 @@ const AllTasks = () => {
         {/* task menu section */}
         <article className="w-[70%] max-h-[70vh] p-5 rounded-md bg-greyPrimary drop-shadow-xl">
           <AllTaskLink />
-          <Tasks todoData={todoData} />
+          <Tasks todos={todoData.todos} />
 
           <div className="my-3 flex gap-x-3 mr-auto w-fit">
             <h1>Previous</h1>

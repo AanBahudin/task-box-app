@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom"
 
-const Tasks = ({todoData}) => {
+const Tasks = ({todos}) => {
   return (
-    <div className="w-full mt-10 flex min-h-[50vh] max-h-[50vh] overflow-y-auto flex-col gap-y-1">
+    <div className="w-full mt-10 flex min-h-fit max-h-[50vh] overflow-y-auto flex-col gap-y-1">
 
-        {todoData.todos.length < 1 ? <h1 className="m-auto text-xl">Let&apos;s create your tasks <Link to='/dashboard/create' className="font-semibold underline cursor-default" >here</Link></h1> : (
-            todoData.todos.map((item, index) => {
+        {todos.length < 1 ? <h1 className="m-auto text-xl">Let&apos;s create your tasks <Link to='/dashboard/create' className="font-semibold underline cursor-default" >here</Link></h1> : (
+            todos.map((item, index) => {
                 const { task, description, status, priority } = item
                 return (
                 <div key={index + 1} className="w-full flex even:bg-greyPrimary justify-between text-sm p-2 bg-white rounded-md">
