@@ -2,8 +2,6 @@ import { useState } from "react"
 import { Link, useOutletContext } from "react-router-dom"
 import { useDashboardContext } from "./Dashboard"
 
-
-
 const AllTasks = () => {
 
   const [linkActive, setLinkActive] = useState('All')
@@ -32,8 +30,8 @@ const AllTasks = () => {
 
           <div className="w-full mt-10 flex min-h-[50vh] max-h-[50vh] overflow-y-auto flex-col gap-y-1">
 
-          {todoData.todo.length < 1 ? <h1 className="m-auto text-xl">Let&apos;s create your tasks <Link to='/dashboard/create' className="font-semibold underline cursor-default" >here</Link></h1> : (
-              todoData.todo.map((item, index) => {
+          {todoData.todos.length < 1 ? <h1 className="m-auto text-xl">Let&apos;s create your tasks <Link to='/dashboard/create' className="font-semibold underline cursor-default" >here</Link></h1> : (
+              todoData.todos.map((item, index) => {
                 const { task, description, status, priority } = item
                 return (
                   <div key={index + 1} className="w-full flex even:bg-greyPrimary justify-between text-sm p-2 bg-white rounded-md">

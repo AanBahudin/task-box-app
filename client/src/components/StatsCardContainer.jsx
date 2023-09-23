@@ -29,8 +29,6 @@ const StatsCardContainer = ({colors, data, totalData}) => {
         },
     ]
 
-    console.log(stats);
-
     return (
         <div className="grid grid-cols-4 gap-x-10 text-bluePrimary mt-10">
             {stats.map((item, index) => {
