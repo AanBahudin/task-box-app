@@ -1,5 +1,6 @@
 import RecentlyAddedCard from "./RecentlyAddedCard"
 import { BsFillAlarmFill } from 'react-icons/bs'
+import { Link } from "react-router-dom"
 
 const RecentlyAdded = () => {
   return (
@@ -10,7 +11,7 @@ const RecentlyAdded = () => {
         {/* CARDS */}
        <RecentlyAddedCard />
 
-        <p className="text-right my-10 text-sm hover:underline hover:font-semibold text-purplePrimary cursor-default duration-200 ease-in-out">Show All ...</p>
+        <Link to="tasks"> <p className="text-right mt-10 text-sm hover:underline hover:font-semibold text-purplePrimary cursor-default duration-200 ease-in-out">Show All ...</p></Link>
       </section>
   )
 }

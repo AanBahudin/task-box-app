@@ -2,6 +2,7 @@
 
 import StatsCardContainer from "./StatsCardContainer"
 import { BsFillInfoSquareFill } from 'react-icons/bs'
+import { Link } from "react-router-dom"
 
 
 const TaskOverview = ({ data, totalData }) => {
@@ -13,7 +14,7 @@ const TaskOverview = ({ data, totalData }) => {
         {/* CARD SECTION */}
        <StatsCardContainer data={data} totalData={totalData} colors={['bg-greyPrimary', 'bg-success', 'bg-warning', 'bg-danger']}  />
 
-        <p className="text-right my-10 text-sm hover:underline hover:font-semibold text-purplePrimary cursor-default duration-200 ease-in-out">Show More ...</p>
+         <Link to="tasks"> <p className="text-right mt-10 text-sm hover:underline hover:font-semibold text-purplePrimary cursor-default duration-200 ease-in-out">Show All ...</p></Link>
       </section>
   )
 }
