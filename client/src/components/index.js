@@ -1,5 +1,6 @@
 import FormInput from "./FormInput";
 import FormSelect from "./FormSelect";
+import Loading from "./Loading";
 import NavLinks from "./NavLinks";
 import PriorityCards from "./PriorityCards";
 import PriorityTasks from "./PriorityTasks";
@@ -16,6 +17,7 @@ import UpdateProfileCard from "./Profile/UpdateProfileCard";
 export {
     FormInput,
     FormSelect,
+    Loading,
     NavLinks,
     PriorityCards,
     PriorityTasks,

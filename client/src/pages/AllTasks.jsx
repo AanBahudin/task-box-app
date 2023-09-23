@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Link, useOutletContext } from "react-router-dom"
 import { useDashboardContext } from "./Dashboard"
+import { Loading } from "../components"
 
 const AllTasks = () => {
 
@@ -10,6 +11,10 @@ const AllTasks = () => {
 
   const handleLink = (active) => {
     setLinkActive(active)
+  }
+
+  if (!todoData) {
+    return <Loading />
   }
 
   return (
@@ -30,21 +35,30 @@ const AllTasks = () => {
 
           <div className="w-full mt-10 flex min-h-[50vh] max-h-[50vh] overflow-y-auto flex-col gap-y-1">
 
-          {todoData.todos.length < 1 ? <h1 className="m-auto text-xl">Let&apos;s create your tasks <Link to='/dashboard/create' className="font-semibold underline cursor-default" >here</Link></h1> : (
-              todoData.todos.map((item, index) => {
-                const { task, description, status, priority } = item
-                return (
-                  <div key={index + 1} className="w-full flex even:bg-greyPrimary justify-between text-sm p-2 bg-white rounded-md">
-                    <p className="my-auto w-fit">{index + 1}</p>
-                    <p className="my-auto font-semibold w-[20%] truncate">{task}</p>
-                    <p className="my-auto w-[20%] truncate">{description}</p>
-                    <p className={`p-1 text-center w-[20%] rounded ${status === 'completed' && 'bg-success' || status === 'on Progress' && 'bg-warning' || 'bg-greyPrimary'}`}>{status}</p>
-                    <p className={`p-1 text-center w-[15%] text-white rounded ${priority === 'Low' && 'bg-success' || priority === 'Mid' && 'bg-warning' || 'bg-danger text-white'}`}>{priority}</p>
-                  </div>
-                )
-              })
-            )}
+            {todoData.todos.length < 1 ? <h1 className="m-auto text-xl">Let&apos;s create your tasks <Link to='/dashboard/create' className="font-semibold underline cursor-default" >here</Link></h1> : (
+                todoData.todos.map((item, index) => {
+                  const { task, description, status, priority } = item
+                  return (
+                    <div key={index + 1} className="w-full flex even:bg-greyPrimary justify-between text-sm p-2 bg-white rounded-md">
+                      <p className="my-auto w-fit">{index + 1}</p>
+                      <p className="my-auto font-semibold w-[20%] truncate">{task}</p>
+                      <p className="my-auto w-[20%] truncate">{description}</p>
+                      <p className={`p-1 text-center w-[20%] rounded ${status === 'completed' && 'bg-success' || status === 'on Progress' && 'bg-warning' || 'bg-greyPrimary'}`}>{status}</p>
+                      <p className={`p-1 text-center w-[15%] text-white rounded ${priority === 'Low' && 'bg-success' || priority === 'Mid' && 'bg-warning' || 'bg-danger text-white'}`}>{priority}</p>
+                    </div>
+                  )
+                })
+              )}
+  
+          </div>
 
+          {/* 
+            div used for pagination button
+              
+          */}
+          <div className="my-3 flex gap-x-3 mr-auto w-fit">
+            <h1>Previous</h1>
+            <h1>Next</h1>
           </div>
         </article>
 
